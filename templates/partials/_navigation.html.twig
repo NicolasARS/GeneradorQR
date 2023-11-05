@@ -1,0 +1,29 @@
+<nav class="main-mnu">
+    <ul class="main-mnu-list">
+        <li class="{{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}} lien">
+            <a href="{{ path('index') }}" data-title="Inicio">
+                <span>Inicio</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}} lien">
+            <a href="{{ path('about') }}" data-title="Acerca de">
+                <span>Acerca de</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'services')  ? 'active': ''}} lien">
+            <a href="{{ path('services') }}" data-title="Servicios">
+                <span>Servicios</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}} lien">
+            <a href="{{ path('news') }}" data-title="Novedades">
+                <span>Novedades</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}} lien">
+            <a href="{{ path('contact') }}" data-title="Contacto">
+                <span>Contacto</span>
+            </a>
+        </li>
+    </ul>
+</nav>
