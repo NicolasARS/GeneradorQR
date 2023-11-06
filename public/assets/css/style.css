@@ -1381,7 +1381,8 @@ textarea {
 }
 
 .required {
-    color: var(--error-color);
+    color: #2962ffe3;
+    font-weight: bold;
 }
 
 .form-field-label {

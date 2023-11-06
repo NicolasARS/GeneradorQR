@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}About{% endblock %}
+{% block title %}Contacto{% endblock %}
 {% block body %}
 <!-- Begin bread crumbs -->
 			<nav class="bread-crumbs">
@@ -8,7 +8,7 @@
 						<div class="col-12">
 							<ul class="bread-crumbs-list">
 								<li>
-									<a href="index.html">Inicio</a>
+									<a href="{{ path('index') }}">Inicio</a>
 									<i class="material-icons md-18">chevron_right</i>
 								</li>
 								<li>Contacto</li>
@@ -63,27 +63,34 @@
 						<div class="col-xl-8 col-md-7 content-item">
 {{ form_start(form, {'attr': {'class':'form-submission contact-form contact-form-padding'}}) }}
 {{ form_errors(form) }}
+	<input type="hidden" name="Subject" value="Contact form">
 	<div class="row gutters-default">
     <div class="col-12">
-        <h3>Contact Form</h3>
+        <h3>Formulario de contacto</h3>
     </div>
-		<div>
-			{{ form_row(form.fullName, {'attr': {'class':'form-control'}}) }}
+		<div class="col-xl-4 col-sm-6 col-12">
+		<div class="form-field">
+			{{ form_row(form.fullName, {'attr': {'class':'form-field-input'}}) }}
 		</div>
-		<div class="col-xs-6">
-			{{ form_row(form.phoneNumber, {'attr': {'class':'form-control'}}) }}
 		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-xs-12">
-			{{ form_row(form.email, {'attr': {'class':'form-control'}}) }}
+		<div class="col-xl-4 col-sm-6 col-12">
+		<div class="form-field">
+			{{ form_row(form.phoneNumber, {'attr': {'class':'form-field-input mask-phone'}}) }}
 		</div>
 	</div>
-	<div class="form-group">
-		<div class="col-xs-12">
-			{{ form_row(form.message, {'attr': {'class':'form-control'}}) }}
-			{{ form_row(form.Send, {'attr': {'class':'pull-right btn btn-lg sr-button'}}) }}
+	<div class="col-xl-4 col-12">
+	<div class="form-field">
+			{{ form_row(form.email, {'attr': {'class':'form-field-input'}}) }}
 		</div>
+	</div>
+	<div class="col-12">
+		<div class="form-field">
+			{{ form_row(form.message, {'attr': {'class':'form-field-input', 'cols':'30', 'rows':'6'}}) }}
+		</div>
+		<div class="form-btn">
+			{{ form_row(form.Send, {'attr': {'class':'btn btn-w240 ripple'}}) }}
+		</div>
+	</div>
 	</div>
 {{ form_end(form) }}
 						</div>
