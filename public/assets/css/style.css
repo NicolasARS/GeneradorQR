@@ -1413,6 +1413,20 @@ textarea {
     display: block;
 }
 
+.is-invalid {
+    border-color: #dc3545;
+    /* otras reglas para resaltar el campo */
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    display: none;
+}
+
+.is-invalid + .invalid-feedback {
+    display: block;
+}
+
 /* 3.5 Icons */
 .material-icons {
     font-family: 'Material Icons';
@@ -2090,7 +2104,19 @@ textarea {
     color: var(--text-secondary);
     transition: color 0.2s;
 }
+.is-invalid {
+    border-color: #dc3545;
+    /* otras reglas para resaltar el campo */
+}
 
+.invalid-feedback {
+    color: #dc3545;
+    display: none;
+}
+
+.is-invalid + .invalid-feedback {
+    display: block;
+}
 .iitem-icon,
 .iitem-heading,
 .iitem-desc {

@@ -61,34 +61,37 @@
 							</div>
 						</div>
 						<div class="col-xl-8 col-md-7 content-item">
-{{ form_start(form, {'attr': {'class':'form-submission contact-form contact-form-padding'}}) }}
+{{ form_start(form, {'attr': {'class':'form-submission contact-form contact-form-padding', 'id':'contact-form'}}) }}
 {{ form_errors(form) }}
-	<input type="hidden" name="Subject" value="Contact form">
 	<div class="row gutters-default">
     <div class="col-12">
         <h3>Formulario de contacto</h3>
     </div>
 		<div class="col-xl-4 col-sm-6 col-12">
 		<div class="form-field">
-			{{ form_row(form.fullName, {'attr': {'class':'form-field-input'}}) }}
+			{{ form_row(form.fullName, {'attr': {'class':'form-field-input', 'id':'fullName'}}) }}
+			<div class="invalid-feedback">Por favor, introduce tu nombre completo.</div>
 		</div>
 		</div>
 		<div class="col-xl-4 col-sm-6 col-12">
 		<div class="form-field">
-			{{ form_row(form.phoneNumber, {'attr': {'class':'form-field-input mask-phone'}}) }}
+			{{ form_row(form.phoneNumber, {'attr': {'class':'form-field-input mask-phone', 'id':'phoneNumber'}}) }}
+			<div class="invalid-feedback">Por favor, introduce tu nombre completo.</div>
 		</div>
 	</div>
 	<div class="col-xl-4 col-12">
 	<div class="form-field">
-			{{ form_row(form.email, {'attr': {'class':'form-field-input'}}) }}
+			{{ form_row(form.email, {'attr': {'class':'form-field-input', 'id':'email'}}) }}
+			<div class="invalid-feedback">Por favor, introduce tu nombre completo.</div>
 		</div>
 	</div>
 	<div class="col-12">
 		<div class="form-field">
-			{{ form_row(form.message, {'attr': {'class':'form-field-input', 'cols':'30', 'rows':'6'}}) }}
+			{{ form_row(form.message, {'attr': {'class':'form-field-input', 'cols':'30', 'rows':'6', 'id':'message'}}) }}
+			<div class="invalid-feedback">Por favor, introduce tu nombre completo.</div>
 		</div>
 		<div class="form-btn">
-			{{ form_row(form.Send, {'attr': {'class':'btn btn-w240 ripple'}}) }}
+			{{ form_row(form.Send, {'attr': {'class':'btn btn-w240 ripple', 'id':'send'}}) }}
 		</div>
 	</div>
 	</div>
@@ -97,6 +100,11 @@
 					</div>
 				</div>
 			</div>
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/contact-form-validation.js') }}"></script>
+{% endblock %}
 
 			<!-- Begin map -->
 			<div class="map">
