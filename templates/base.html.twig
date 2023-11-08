@@ -57,14 +57,18 @@
                 <div class="bff-container">
                     <p>Bienvenido</p>
                     <div class="btn-group justify-content-center justify-content-md-start">
-                        <a href="https://www.templatemonster.com/website-templates/pathsoft-it-solutions-for-your-business-services-website-template-83414.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
+                        {% if app.user %}
+                        <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
+                        {% else %}
+                        <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
                             <span>Register</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a>
-                        <a href="https://www.templatemonster.com/wordpress-themes/pathsoft-it-solutions-for-your-business-services-wordpress-theme-99496.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
+                        </a></li>
+                        <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
                             <span>Login</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a>
+                        </a></li>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -111,14 +115,18 @@
                 <div class="bff-container">
                     <p>Get Full-Featured <br class="d-sm-none"> PathSoft Template</p>
                     <div class="btn-group justify-content-center justify-content-md-start">
-                        <a href="https://www.templatemonster.com/website-templates/pathsoft-it-solutions-for-your-business-services-website-template-83414.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Login</span>
-                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a>
-                        <a href="https://www.templatemonster.com/wordpress-themes/pathsoft-it-solutions-for-your-business-services-wordpress-theme-99496.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
+                    {% if app.user %}
+                        <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
+                        {% else %}
+                        <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
                             <span>Register</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a>
+                        </a></li>
+                        <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
+                            <span>Login</span>
+                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
+                        </a></li>
+                        {% endif %}
                     </div>
                 </div>
             </div>
