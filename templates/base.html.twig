@@ -61,11 +61,11 @@
                         <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
                         {% else %}
                         <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Register</span>
+                            <span>Registrate</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a></li>
                         <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Login</span>
+                            <span>Iniciar Sesion</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a></li>
                         {% endif %}
@@ -119,11 +119,11 @@
                         <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
                         {% else %}
                         <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Register</span>
+                            <span>Registrate</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a></li>
                         <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Login</span>
+                            <span>Iniciar Sesion</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a></li>
                         {% endif %}
@@ -170,13 +170,13 @@
                 <div class="col-md-auto col-12 item">
                     <nav class="footer-links">
                         <ul>
-                            <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-and-conditions.html">Terminos y Condiciones</a></li>
+                            <li><a href="privacy-policy.html">Politica de privacidad</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-md-auto col-12 item">
-                    <div class="copyright">© 2022 psFree. All rights reserved.</div>
+                    <div class="copyright">© 2023 psFree. All rights reserved.</div>
                 </div>
             </div>
         </div>
@@ -192,6 +192,6 @@
 <script src="assets/libs/pristine/pristine.min.js"></script>
 <script src="assets/js/custom.js"></script>
 <!-- <script src="assets/js/forms.js"></script> -->
-<script src="assets/js/contact-form-validation.js"></script>
+<script src="assets/js/contactFormValidation.js"></script> 
 {% endblock %}
 </body></html>

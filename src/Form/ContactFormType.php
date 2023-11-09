@@ -21,7 +21,7 @@ class ContactFormType extends AbstractType
             ->add('phoneNumber' , TextType::class, array('label'=> 'Telefono'))
             ->add('email', EmailType::class, array('label' => 'Correo'))
             ->add('message' , TextareaType::class, array('label'=> 'Dejanos tu mensaje'))
-            ->add('Send', SubmitType::class, array('label' => 'Enviar formulario'));
+            ->add('submit', SubmitType::class, array('label' => 'Enviar formulario'));
         ;
     }
 
