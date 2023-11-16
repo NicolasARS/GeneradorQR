@@ -86,9 +86,9 @@
 		<div class="form-field">
 			{{ form_row(form.message, {'attr': {'class':'form-field-input', 'cols':'30', 'rows':'6', 'id':'message'}}) }}
 		</div>
-		<div class="form-btn">
-			{{ form_row(form.submit, {'attr': {'class':'btn btn-w240 ripple', 'id':'submit'}}) }}
-		</div>
+		<a class="form-btn">
+			{{ form_row(form.submit, {'attr': {'class':'btn btn-w240 ripple', 'id':'submit'}})}}
+		</a>
 	</div>
 	</div>
 {{ form_end(form) }}
@@ -102,5 +102,4 @@
 			</div><!-- End map -->
 
 		</div>
-	<script src="assets/js/validacionFormContact.js"></script>
 {% endblock %}

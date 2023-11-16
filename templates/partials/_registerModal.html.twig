@@ -1,15 +1,19 @@
-<div id="registroModal" class="modal accordion-item" style="display:none;">
-    
-    <div class="modal-content section-bgc">
-        <span class="close-button" onclick="cerrarModal()">&times;</span>
-        <div class="">
-        <p>¿Ya te has registrado?</p>
-        <p>Si no lo has hecho, te invitamos a registrarte para disfrutar de todas nuestras funcionalidades.</p>
-        <a onclick="window.location.href='{{ path('register') }}'" class="btn btn-border btn-small ripple">
-        <span>Register</span>
-        </a>
+<div class="modal col-md-6 col-xl-4 col-12 item" id="registroModal" style="display:none;">
+    <div class="iitem item-style iitem-hover">
+    <span class="close-button" onclick="cerrarModal()">&times;</span>
+        <div class="iitem-icon">
+            <i class="material-icons material-icons-outlined md-48">cloud_done</i>
         </div>
+        <div class="iitem-icon-bg">
+            <i class="material-icons material-icons-outlined">cloud_done</i>
+        </div>
+        <h2 class="iitem-heading item-heading-large">¿ Ya te has registrado ?</h2>
+        <div class="iitem-desc">No olvides registrarte para disfrutar de todas nuestras funcionalidades.</div><br>
+        <button onclick="window.location.href='{{ path('register') }}'" class="btn btn-border ripple">
+        <span>Registrate</span>
+        <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
+        </button>
     </div>
-    
+</div>
     <script src="assets/js/alert.js"></script>
 </div>

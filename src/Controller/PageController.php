@@ -31,9 +31,9 @@ class PageController extends AbstractController
     $form = $this->createForm(ContactFormType::class, $contact);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-        $contacto = $form->getData();    
+        $contact = $form->getData();    
         $entityManager = $doctrine->getManager();    
-        $entityManager->persist($contacto);
+        $entityManager->persist($contact);
         $entityManager->flush();
         return $this->redirectToRoute('thanks', []);
     }

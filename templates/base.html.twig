@@ -51,31 +51,10 @@
         </ul>
     </div>
 </nav><!-- End mobile main menu -->
-<div class="bff">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="bff-container">
-                    <p>Bienvenido</p>
-                    <div class="btn-group justify-content-center justify-content-md-start">
-                        {% if app.user %}
-                        <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
-                        {% else %}
-                        <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Registrate</span>
-                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a></li>
-                        <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Iniciar Sesion</span>
-                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a></li>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+<!-- Login nav -->
+{{ include ('partials/_loginNav.html.twig')}}
+
 <header class="header header-minimal">
     <nav class="header-fixed">
         <div class="container">
@@ -109,31 +88,11 @@
 
 {% block body %}{% endblock %}
 
-		<div class="bff">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="bff-container">
-                    <p>Get Full-Featured <br class="d-sm-none"> PathSoft Template</p>
-                    <div class="btn-group justify-content-center justify-content-md-start">
-                    {% if app.user %}
-                        <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
-                        {% else %}
-                        <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Registrate</span>
-                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a></li>
-                        <li class="{{ (app.request.attributes.get('_route') == 'register')  ? 'active': ''}} "><a href="{{path('login')}}" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>Iniciar Sesion</span>
-                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-                        </a></li>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Scroll up button -->
+{{ include ('partials/_scrollUp.html.twig')}}
+
+<!-- Footer login nav-->
+{{ include ('partials/_loginNav.html.twig')}}
 
 <!-- Begin footer -->
 <footer class="footer footer-minimal">
@@ -192,6 +151,7 @@
 <script src="assets/libs/spincrement/jquery.spincrement.min.js"></script>
 <script src="assets/libs/pristine/pristine.min.js"></script>
 <script src="assets/js/custom.js"></script>
+<script src="assets/js/scroll.js"></script>
 <!-- <script src="assets/js/forms.js"></script> --> 
 {% endblock %}
 </body></html>
