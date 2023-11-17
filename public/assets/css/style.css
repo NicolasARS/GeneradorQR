@@ -1200,7 +1200,6 @@ blockquote footer {
 
 .btn-top.active {
     opacity: 1;
-    visibility: visible;
     bottom: 15px;
 }
 
