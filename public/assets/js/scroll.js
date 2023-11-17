@@ -1,16 +1,28 @@
-// Cuando el usuario se desplaza hacia abajo 20px desde la parte superior de la página, muestra el botón
-window.onscroll = function() {scrollFunction()};
+window.onload = resetScroll;
+window.onscroll = scrollFunction;
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+function resetScroll() {
+    // Esta función restablece la visibilidad del botón cuando la página se carga
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
         document.getElementById("myBtn").style.display = "block";
     } else {
         document.getElementById("myBtn").style.display = "none";
     }
 }
 
-// Cuando el usuario hace clic en el botón, desplaza hacia la parte superior de la página
+function scrollFunction() {
+    // Esta función maneja la visibilidad del botón durante el desplazamiento
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// Cuando el usuario hace clic en el botón, desplaza hacia la parte superior de la página de manera suave
 function topFunction() {
-    document.body.scrollTop = 0; // Para Safari
-    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+    window.scrollTo({
+        top: 10,
+        behavior: 'smooth' // Esto hace que el desplazamiento sea suave
+    });
 }

@@ -14,7 +14,7 @@
     </header>
         <div class="col-sm-10 ">
 {{ form_errors(registrationForm) }}
-        {{ form_start(registrationForm) }}
+        {{ form_start(registrationForm, {'attr': {'id': 'formularioId'}}) }}
             {{ form_row(registrationForm.name,  {'attr': {'class':'form-control'}}) }}
             {{ form_row(registrationForm.email,  {'attr': {'class':'form-control'}}) }}
             {{ form_row(registrationForm.plainPassword,  {'attr': {'class':'form-control'}}, {
@@ -28,4 +28,5 @@
     </div>
     </div>
     </section>
+<script src="assets/js/registerFormValidacion.js"></script>
 {% endblock %}

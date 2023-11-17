@@ -21,3 +21,33 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+#myBtn {
+    position: fixed; /* Posición fija */
+    bottom: 20px; /* 20px desde el fondo */
+    right: 30px; /* 30px desde la derecha */
+    z-index: 99; /* Asegura que esté sobre otros elementos */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno */
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor a una mano */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+#myBtn:hover {
+    background-color: #555; /* Color de fondo al pasar el ratón */
+}
+
+#cookiesModal {
+    position: fixed; /* Fija el modal en la pantalla */
+    bottom: 20px; /* 20px desde el fondo */
+    right: 30px; /* 30px desde la derecha */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+     /* Ancho del modal */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Sombra para destacar */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: white; /* Color de fondo */
+     /* Espaciado interno */
+}
