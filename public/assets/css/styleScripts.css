@@ -51,3 +51,45 @@
     background-color: white; /* Color de fondo */
      /* Espaciado interno */
 }
+
+#qr-generator {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.option-button {
+    margin-right: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#input-area {
+    margin-bottom: 20px;
+}
+
+#qr-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#generate-qr {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#qr-code {
+    margin-top: 20px;
+}

@@ -38,50 +38,23 @@
 								<h2>Our Services</h2>
 							</div>
 						</header>
-						<div class="col-lg-4 col-md-6 col-12 item">
-							<a href="#!" class="iitem item-style iitem-hover">
-								<div class="iitem-icon">
-									<i class="material-icons material-icons-outlined md-48">corporate_fare</i>
-								</div>
-								<div class="iitem-icon-bg">
-									<i class="material-icons material-icons-outlined">corporate_fare</i>
-								</div>
-								<h3 class="iitem-heading item-heading-large">Corporate Solution</h3>
-								<div class="iitem-desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</div>
-							</a>
-						</div>
-						<div class="col-lg-4 col-md-6 col-12 item">
-							<a href="#!" class="iitem item-style iitem-hover">
-								<div class="iitem-icon">
-									<i class="material-icons material-icons-outlined md-48">support_agent</i>
-								</div>
-								<div class="iitem-icon-bg">
-									<i class="material-icons material-icons-outlined">support_agent</i>
-								</div>
-								<h3 class="iitem-heading item-heading-large">Call Center Solutions</h3>
-								<div class="iitem-desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it.</div>
-							</a>
-						</div>
-						<div class="col-lg-4 col-md-12 col-12 item">
-							<a href="#!" class="iitem item-style iitem-hover">
-								<div class="iitem-icon">
-									<i class="material-icons material-icons-outlined md-48">cloud_download</i>
-								</div>
-								<div class="iitem-icon-bg">
-									<i class="material-icons material-icons-outlined">cloud_download</i>
-								</div>
-								<h3 class="iitem-heading item-heading-large">Cloud Development</h3>
-								<div class="iitem-desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</div>
-							</a>
-						</div>
-						<div class="section-footer col-12 section-footer-animate">
-							<div class="btn-group align-items-center justify-content-center">
-								<a href="#!" class="btn btn-with-icon btn-w240 ripple">
-									<span>See All Services</span>
-									<svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
-								</a>
-							</div>
-						</div>
+						<div id="qr-generator">
+    <div class="options">
+        <button class="option-button" data-type="url">URL</button>
+        <button class="option-button" data-type="vcard">VCARD</button>
+        <button class="option-button" data-type="text">Texto</button>
+        <!-- Agrega más botones para cada tipo de QR que desees soportar -->
+    </div>
+    
+    <div id="input-area">
+        <!-- El contenido de este div cambiará según el tipo de QR seleccionado -->
+        <input type="text" id="qr-input" placeholder="Ingresa tu sitio web, texto o arrastra tu archivo aquí">
+    </div>
+    
+    <button id="generate-qr">Generar QR</button>
+    <div id="qr-code"></div>
+</div>
+
 					</div>
 				</div>
 			</section>
