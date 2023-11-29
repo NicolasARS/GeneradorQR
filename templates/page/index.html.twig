@@ -47,11 +47,28 @@
                         <button class="option-button" data-type="email"><i class="material-icons">email</i> Email</button>
                         <button class="option-button" data-type="sms"><i class="material-icons">sms</i> SMS</button>
                         <button class="option-button" data-type="bitcoin"><i class="material-icons">monetization_on</i> Bitcoin</button>
-                        <button class="option-button" data-type="redSocial"><i class="material-icons">group</i> Red Social</button>
+                        <button class="option-button" data-type="wifi"><i class="material-icons">group</i> Wifi</button>
                     </div>
                     <div id="input-area">
                         <input type="text" id="qr-input" placeholder="Ingresa tu sitio web, texto o arrastra tu archivo aquí">
                     </div>
+					<div id="email-form" style="display:none;">
+    <h2>Código QR Email</h2>
+    <form id="qr-email-form">
+        <div class="form-group">
+            <label for="email-address">Email:</label>
+            <input type="email" id="email-address" placeholder="Dirección de email" required>
+        </div>
+        <div class="form-group">
+            <label for="email-subject">Asunto:</label>
+            <input type="text" id="email-subject" placeholder="Asunto del email">
+        </div>
+        <div class="form-group">
+            <label for="email-message">Mensaje:</label>
+            <textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
+        </div>
+    </form>
+</div>
                     <button id="generate-qr" onclick="generarQR()">Generar QR</button>
                 </div>
             </div>
