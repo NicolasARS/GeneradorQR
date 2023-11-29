@@ -30,34 +30,60 @@
 			</div>
 
 			<section class="section">
-				<div class="container">
-					<div class="row">
-						<header class="col-12">
-							<div class="section-heading heading-center">
-								<div class="section-subheading">Areas what we serv</div>
-								<h2>Our Services</h2>
-							</div>
-						</header>
-						<div id="qr-generator">
-    <div class="options">
-        <button class="option-button" data-type="url">URL</button>
-        <button class="option-button" data-type="vcard">VCARD</button>
-        <button class="option-button" data-type="text">Texto</button>
-        <!-- Agrega más botones para cada tipo de QR que desees soportar -->
+    <div class="container">
+        <div class="row">
+            <header class="col-12">
+                <div class="section-heading heading-center">
+                    <div class="section-subheading">Crea códigos QR dinámicos gratis</div>
+                    <h1>Nuestros servicios</h1>
+                    <p class="section-desc">Los Códigos QR que ofrecemos son completamente gratuitos y nunca expirarán, una vez creado, nunca lo perderás.</p>
+                </div>
+            </header>
+            <div class="col-md-6">
+                <div id="qr-generator">
+                    <div class="options">
+                        <button class="option-button" data-type="url"><i class="material-icons">public</i> URL</button>
+                        <button class="option-button" data-type="text"><i class="material-icons">text_format</i> Texto</button>
+                        <button class="option-button" data-type="email"><i class="material-icons">email</i> Email</button>
+                        <button class="option-button" data-type="sms"><i class="material-icons">sms</i> SMS</button>
+                        <button class="option-button" data-type="bitcoin"><i class="material-icons">monetization_on</i> Bitcoin</button>
+                        <button class="option-button" data-type="redSocial"><i class="material-icons">group</i> Red Social</button>
+                    </div>
+                    <div id="input-area">
+                        <input type="text" id="qr-input" placeholder="Ingresa tu sitio web, texto o arrastra tu archivo aquí">
+                    </div>
+                    <button id="generate-qr" onclick="generarQR()">Generar QR</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="qr-section">
+                    <div class="qr-preview">
+                        <img src="{{asset('assets/img/qr-preview.png')}}" alt="QR Code" class="img-fluid" />
+                    </div>
+                    <div class="qr-options">
+                        <!-- Suponiendo que tendrás opciones de marcos y estilos para los QRs -->
+                        <div class="option-category">
+                            <h3>MARCO <span class="new">¡NOVEDAD!</span></h3>
+                            <div class="options">
+                                <!-- Botones para opciones de marco -->
+                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
+                                <button class="option-button frame-option" data-type="simple"><img src="" alt="Simple" /></button>
+                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+                                <!-- Más botones de marcos si son necesarios -->
+                            </div>
+                        </div>
+                        <!-- Más categorías de opciones si son necesarias -->
+                        <div class="download-options">
+                            <button class="download-button" data-format="jpg">DESCARGAR JPG</button>
+                            <button class="download-button" data-format="vector">VECTOR SVG/EPS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div id="input-area">
-        <!-- El contenido de este div cambiará según el tipo de QR seleccionado -->
-        <input type="text" id="qr-input" placeholder="Ingresa tu sitio web, texto o arrastra tu archivo aquí">
-    </div>
-    
-    <button id="generate-qr">Generar QR</button>
-    <div id="qr-code"></div>
-</div>
+</section>
 
-					</div>
-				</div>
-			</section>
 
 			<section class="section section-bgc">
 				<div class="container">
@@ -338,5 +364,7 @@
 
 <!-- Modal para Registro Javascript-->
 {{ include ('partials/_registerScript.html.twig')}}
+
+<script src="assets/js/generarQr.js"></script>
 
 {% endblock %}

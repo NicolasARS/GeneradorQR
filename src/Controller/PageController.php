@@ -54,4 +54,9 @@ class PageController extends AbstractController
         return $this->render('page/thanks.html.twig', []);
     }
     
+    #[Route('/services', name: 'services')]
+    public function services(): Response
+    {
+        return $this->render('services/services.html.twig', []);
+    }
 }

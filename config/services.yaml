@@ -6,6 +6,8 @@
 parameters:
 
 services:
+    Endroid\QrCode\Builder\BuilderInterface:
+        class: Endroid\QrCode\Builder\Builder
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

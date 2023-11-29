@@ -52,24 +52,62 @@
      /* Espaciado interno */
 }
 
-#qr-generator {
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 80%;
+.section {
+    background: #f9f9f9;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
     margin: auto;
-    text-align: center;
+    padding: 0 15px;
+}
+
+.section-heading.heading-center {
+    margin-bottom: 50px;
+}
+
+.section-subheading {
+    color: #007bff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.section-desc {
+    margin-bottom: 35px;
+    color: #666;
+}
+
+#qr-generator {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .option-button {
-    margin-right: 5px;
-    padding: 10px;
-    border: none;
-    background-color: #f0f0f0;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #495057;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.option-button i {
+    font-size: 20px;
+    margin-right: 8px;
 }
 
 #input-area {
@@ -79,6 +117,8 @@
 #qr-input {
     width: 100%;
     padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
     margin-bottom: 10px;
 }
 
@@ -87,9 +127,84 @@
     background-color: #007bff;
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
 
 #qr-code {
     margin-top: 20px;
+}
+
+.qr-section {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qr-preview {
+    margin-bottom: 30px;
+}
+
+.qr-preview img {
+    max-width: 200px; /* Ajusta este valor al tamaño deseado */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin: auto; /* Esto centrará la imagen en el div si el div es más ancho que la imagen */
+}
+
+.qr-options .option-category h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.qr-options .option-category .new {
+    font-size: 14px;
+    color: #28a745;
+    margin-left: 5px;
+}
+
+.qr-options .options {
+    justify-content: space-around;
+}
+
+.qr-options .frame-option img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.download-options {
+    margin-top: 20px;
+}
+
+.download-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .options {
+        flex-direction: column;
+    }
+
+    .qr-section, #qr-generator {
+        margin-bottom: 20px;
+    }
+
+    .row > .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
