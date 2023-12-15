@@ -13,20 +13,29 @@ use App\Form\ContactFormType;
 class PageController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return $this->render('page/index.html.twig', []);
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/index.html.twig', [
+        'cookieAceptada' => $cookieAceptada
+    ]);
     }
 
     #[Route('/about', name: 'about')]
-    public function about(): Response
+    public function about(Request $request): Response
     {
-        return $this->render('page/about.html.twig', []);
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/about.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
     }
 
     #[Route('/contact', name: 'contact')]
     public function contact(ManagerRegistry $doctrine, Request $request): Response
     {
+    $cookieAceptada = $request->cookies->get('aceptar_cookies');
     $contact = new Contact();
     $form = $this->createForm(ContactFormType::class, $contact);
     $form->handleRequest($request);
@@ -37,26 +46,39 @@ class PageController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('thanks', []);
     }
-        return $this->render('page/contact.html.twig', array(
-            'form' => $form->createView()    
-        ));
+        return $this->render('page/contact.html.twig', [
+            'form' => $form->createView(),
+            'cookieAceptada' => $cookieAceptada    
+    ]);
     }
 
     #[Route('/news', name: 'news')]
-    public function news(): Response
+    public function news(Request $request): Response
     {
-        return $this->render('page/news.html.twig', []);
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/news.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
     }
 
     #[Route('/thanks', name: 'thanks')]
-    public function thanks(): Response
+    public function thanks(Request $request): Response
     {
-        return $this->render('page/thanks.html.twig', []);
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/thanks.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
     }
     
     #[Route('/services', name: 'services')]
-    public function services(): Response
+    public function services(Request $request): Response
     {
-        return $this->render('services/services.html.twig', []);
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('services/services.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
     }
 }

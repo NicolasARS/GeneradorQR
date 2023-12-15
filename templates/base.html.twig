@@ -87,7 +87,9 @@
 
 {% block body %}{% endblock %}
 
+{% if not cookieAceptada %}
 {{ include ('partials/_cookies.html.twig')}}
+{% endif %}
 
 <!-- Scroll up button -->
 {{ include ('partials/_scrollUp.html.twig')}}
@@ -153,6 +155,7 @@
 <script src="{{asset("assets/libs/pristine/pristine.min.js")}}"></script>
 <script src="{{asset("assets/js/custom.js")}}"></script>
 <script src="{{asset("assets/js/scroll.js")}}"></script>
+<script src="{{asset("assets/js/cookies.js")}}"></script>
 <!-- <script src="assets/js/forms.js"></script> --> 
 {% endblock %}
 </body></html>
