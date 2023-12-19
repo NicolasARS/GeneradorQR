@@ -7,12 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
@@ -24,7 +26,8 @@ class SecurityController extends AbstractController
         
         $response = $this->render('security/login.html.twig', [
         'last_username' => $lastUsername, 
-        'error' => $error
+        'error' => $error,
+        'cookieAceptada' => $cookieAceptada 
     ]);
 
     // Establecer una cookie cuando se carga la página de inicio de sesión

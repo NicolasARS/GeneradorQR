@@ -69,7 +69,9 @@
         </div>
     </form>
 </div>
-                    <button id="generate-qr" onclick="generarQR()" >Generar QR</button>
+                    <button id="generate-qr" onclick="generarQR()" class="btn btn-border ripple">
+					<span>Generar QR</span>
+					</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -378,9 +380,6 @@
 				</div>
 			</section>
 		</div>
-
-<!-- Modal para Registro Javascript-->
-{{ include ('partials/_registerScript.html.twig')}}
 
 <script src="assets/js/generarQr.js"></script>
 

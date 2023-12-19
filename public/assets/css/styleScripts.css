@@ -46,10 +46,10 @@
     right: 30px; /* 30px desde la derecha */
     z-index: 1000; /* Asegura que esté sobre otros elementos */
      /* Ancho del modal */
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Sombra para destacar */
     border-radius: 10px; /* Bordes redondeados */
     background-color: white; /* Color de fondo */
-     /* Espaciado interno */
+    /* Espaciado interno */
+    border: 1px solid #000000;
 }
 
 .section {

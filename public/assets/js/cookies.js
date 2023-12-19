@@ -9,13 +9,18 @@ function verificarAceptacionCookies() {
     return false;
 }
 
+//Ventanas flotantes register y cookies
 document.addEventListener('DOMContentLoaded', (event) => {
     if (!verificarAceptacionCookies()) {
-        // Temporizador para mostrar el modal después de 2 segundos
-        setTimeout(mostrarCookiesModal, 2000);
+        // Si las cookies no han sido aceptadas, muestra el modal de cookies
+        mostrarCookiesModal();
+    } else {
+        // Si las cookies ya han sido aceptadas, muestra el registerWindow después de 2 minutos (120,000 milisegundos)
+        setTimeout(mostrarRegisterWindow, 2000);
     }
 });
 
+//Aviso de cookies
 function mostrarCookiesModal() {
     var modal = document.getElementById("cookiesModal");
     if (modal) {
@@ -27,9 +32,27 @@ function cerrarCookiesModal() {
     var modal = document.getElementById("cookiesModal");
     if (modal) {
         modal.style.display = "none";
+        // Una vez cerrado el modal de cookies, programa la aparición de registerWindow después de 2 minutos
+        setTimeout(mostrarRegisterWindow, 2000);
     }
 }
 
+//Ventana registro modal
+function mostrarRegisterWindow() {
+    var registerWindow = document.getElementById('registerWindow');
+    if (registerWindow) {
+        registerWindow.style.display = 'block';
+    }
+}
+
+function cerrarRegisterWindow() {
+    var registerWindow = document.getElementById('registerWindow');
+    if (registerWindow) {
+        registerWindow.style.display = 'none';
+    }
+}
+
+//Cookies
 // Función que maneja la aceptación de cookies
 function aceptarCookies() {
     fetch('/aceptar-cookies')
