@@ -1,31 +1,74 @@
 function generarQR() {
-    // Determinar si estamos generando un QR de URL o de Email
     var type = this.dataset.type; // esto asumirá que el botón presionado tiene un data-type atributo
     var qrData = '';
 
-    if (type === 'url') {
-        var url = document.getElementById('qr-input').value;
-        if (!url) {
-            alert('Por favor, ingresa una URL.');
+    switch (type) {
+        case 'url':
+            // Lógica para URLs
+                var url = document.getElementById('qr-url-input').value;
+                if (!url) {
+                    alert('Por favor, ingresa una URL.');
+                    return;
+                }
+                qrData = encodeURIComponent(url);
+            break;
+            
+        case 'email':
+            // Lógica para Emails
+            var emailAddress = document.getElementById('email-address').value;
+            var emailSubject = document.getElementById('email-subject').value;
+            var emailMessage = document.getElementById('email-message').value;
+            
+            qrData = 'mailto:' + encodeURIComponent(emailAddress);
+            var params = [];
+            if (emailSubject) {
+                params.push('subject=' + encodeURIComponent(emailSubject));
+            }
+            if (emailMessage) {
+                params.push('body=' + encodeURIComponent(emailMessage));
+            }
+            if (params.length) {
+                qrData += '?' + params.join('&');
+            }
+            break;
+
+        case 'wifi':
+            // Lógica para WiFi
+            var ssid = document.getElementById('wifi-red').value;
+            var password = document.getElementById('wifi-contraseña').value;
+
+            if (!ssid) {
+            alert('Por favor, ingresa el nombre de la red WiFi.');
             return;
         }
-        qrData = encodeURIComponent(url);
-    } else if (type === 'email') {
-        var emailAddress = document.getElementById('email-address').value;
-        var emailSubject = document.getElementById('email-subject').value;
-        var emailMessage = document.getElementById('email-message').value;
+        qrData = 'WIFI:S:' + encodeURIComponent(ssid) + ';T:WPA;P:' + encodeURIComponent(password) + ';;';
+        break;
+            break;
+
+        case 'sms':
+            // Lógica para Mensajes
+            var telefono = document.getElementById('sms-phone').value;
+            var mensaje = document.getElementById('sms-message').value;
+
+            if (!telefono) {
+            alert('Por favor, ingresa un número de teléfono.');
+            return;
+        }
+        qrData = 'sms:' + encodeURIComponent(telefono) + '?body=' + encodeURIComponent(mensaje);
+            break;
         
-        qrData = 'mailto:' + encodeURIComponent(emailAddress);
-        var params = [];
-        if (emailSubject) {
-            params.push('subject=' + encodeURIComponent(emailSubject));
-        }
-        if (emailMessage) {
-            params.push('body=' + encodeURIComponent(emailMessage));
-        }
-        if (params.length) {
-            qrData += '?' + params.join('&');
-        }
+        case 'texto':
+            // Lógica para Texto
+            var texto = document.getElementById('qr-text-input').value; // Asegúrate de que este es el ID correcto
+            if (!texto) {
+                alert('Por favor, ingresa un texto.');
+                return;
+            }
+            qrData = encodeURIComponent(texto);
+            break;
+        default:
+            console.error('Tipo no reconocido:', type);
+            return;
     }
 
     // Hacer la solicitud fetch al backend para generar el QR
@@ -64,16 +107,31 @@ optionButtons.forEach(function(button) {
         var type = this.dataset.type;
         
         // Mostrar el formulario de email si el tipo es 'email'
+        var inputArea = document.getElementById('qr-url-area');
+        var emailForm = document.getElementById('qr-email-area');
+        var textArea = document.getElementById('qr-text-area'); // Asegúrate de que este es el ID correcto
+        var smsArea = document.getElementById('qr-sms-area');
+        var wifiArea = document.getElementById('qr-wifi-area');
+
+        // Ocultar todos los campos
+        inputArea.style.display = 'none';
+        emailForm.style.display = 'none';
+        textArea.style.display = 'none';
+        smsArea.style.display = 'none';
+        wifiArea.style.display = 'none';
+
+
+        // Mostrar el campo adecuado basado en el tipo seleccionado
         if (type === 'email') {
-            document.getElementById('email-form').style.display = 'block';
-            document.getElementById('input-area').style.display = 'none'; // Ocultar el input de URL
-        } else if (type === 'url' || type === 'text') {
-            document.getElementById('email-form').style.display = 'none';
-            document.getElementById('input-area').style.display = 'block'; // Mostrar el input de URL
-        } else {
-            // Para todos los otros tipos, ocultar ambos
-            document.getElementById('email-form').style.display = 'none';
-            document.getElementById('input-area').style.display = 'none';
+            emailForm.style.display = 'block';
+        } else if (type === 'url') {
+            inputArea.style.display = 'block';
+        } else if (type === 'texto') {
+            textArea.style.display = 'block';
+        } else if (type === 'sms') {
+            smsArea.style.display = 'block';
+        } else if (type === 'wifi') {
+            wifiArea.style.display = 'block';
         }
 
         // Establecer el tipo de QR a generar

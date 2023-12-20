@@ -43,32 +43,64 @@
                 <div id="qr-generator">
                     <div class="options">
                         <button class="option-button" data-type="url"><i class="material-icons">public</i> URL</button>
-                        <button class="option-button" data-type="text"><i class="material-icons">text_format</i> Texto</button>
+                        <button class="option-button" data-type="texto"><i class="material-icons">text_format</i> Texto</button>
                         <button class="option-button" data-type="email"><i class="material-icons">email</i> Email</button>
                         <button class="option-button" data-type="sms"><i class="material-icons">sms</i> SMS</button>
-                        <button class="option-button" data-type="bitcoin"><i class="material-icons">monetization_on</i> Bitcoin</button>
+                        <button class="option-button" data-type="contacto"><i class="material-icons">monetization_on</i> Bitcoin</button>
                         <button class="option-button" data-type="wifi"><i class="material-icons">group</i> Wifi</button>
                     </div>
-                    <div id="input-area">
-                        <input type="text" id="qr-input" placeholder="Ingresa tu sitio web, texto o arrastra tu archivo aquí">
+                    <div id="qr-url-area" style="display: none;">
+					<h2>URL:</h2>
+                        <input type="text" id="qr-url-input" placeholder="Ingresa tu URL">
                     </div>
-					<div id="email-form" style="display:none;">
-    <h2>Código QR Email</h2>
-    <form id="qr-email-form">
-        <div class="form-group">
-            <label for="email-address">Email:</label>
-            <input type="email" id="email-address" placeholder="Dirección de email" required>
-        </div>
-        <div class="form-group">
-            <label for="email-subject">Asunto:</label>
-            <input type="text" id="email-subject" placeholder="Asunto del email">
-        </div>
-        <div class="form-group">
-            <label for="email-message">Mensaje:</label>
-            <textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
-        </div>
-    </form>
-</div>
+					<div id="qr-email-area" style="display:none;">
+						<h2>Código QR Email</h2>
+						<form id="qr-email-form">
+							<div class="form-group">
+								<label for="email-address">Email:</label>
+								<input type="email" id="email-address" placeholder="Dirección de email" required>
+							</div>
+							<div class="form-group">
+								<label for="email-subject">Asunto:</label>
+								<input type="text" id="email-subject" placeholder="Asunto del email">
+							</div>
+							<div class="form-group">
+								<label for="email-message">Mensaje:</label>
+								<textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
+							</div>
+						</form>
+					</div>
+					<div id="qr-text-area" style="display: none;">
+					<h2>Texto:</h2>
+                        <textarea id="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
+                    </div>
+					<div id="qr-sms-area" style="display:none;">
+						<h2>SMS:</h2>
+						<form id="qr-sms-form">
+							<div class="form-group">
+								<label for="sms-phone">Telefono:</label>
+								<input type="tel" id="sms-phone" placeholder="Numero de telefono" required>
+							</div>
+							<div class="form-group">
+								<label for="sms-message">Mensaje:</label>
+								<textarea id="sms-message" placeholder="Por favor, envíenme información sobre..."></textarea>
+							</div>
+						</form>
+					</div>
+					<div id="qr-wifi-area" style="display:none;">
+						<h2>Wifi:</h2>
+						<form id="qr-wifi-form">
+							<div class="form-group">
+								<label for="wifi-red">Nombre de la red:</label>
+								<input type="text" id="wifi-red" placeholder="SSID" required>
+							</div>
+							<div class="form-group">
+								<label for="wifi-contraseña">Contraseña:</label>
+								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre..."></input>
+							</div>
+						</form>
+					</div>
+					
                     <button id="generate-qr" onclick="generarQR()" class="btn btn-border ripple">
 					<span>Generar QR</span>
 					</button>
