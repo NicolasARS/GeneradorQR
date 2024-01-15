@@ -97,7 +97,7 @@
     background-color: #e9ecef;
     border: 1px solid #ced4da;
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 5px 7px;
     font-size: 14px;
     color: #495057;
     cursor: pointer;
@@ -172,12 +172,40 @@
 }
 
 .qr-options .frame-option img {
-    width: 50px;
-    height: 50px;
+    max-width: 100px;
+    height: auto;
     border: 1px solid #ced4da;
     border-radius: 4px;
     padding: 5px;
 }
+
+  /* Estilo para el texto 'Sube tu archivo' */
+  .upload-link {
+  display: block;
+  padding: 12px 16px;
+  background-color: #ddd; /* Light grey background */
+  text-align: center; /* Center the text */
+  margin-top: 10px; /* Space from the images above */
+  border-top: 1px solid #ccc; /* Line to separate from the images */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  }
+
+  /* Estilo para el área de subida de archivos */
+  .upload-area {
+    border-top: 1px solid #ccc; /* Línea para separar de las imágenes */
+    padding: 10px 0; /* Espaciado dentro del área de subida */
+  }
+  
+  /* Estilo para el texto 'Sube tu archivo' */
+  .upload-link {
+  display: block;
+  padding: 12px 16px;
+  background-color: #ddd; 
+  text-align: center; 
+  margin-top: 10px; 
+  border-top: 1px solid #ccc; 
+  cursor: pointer; 
+  }
 
 .download-options {
     margin-top: 20px;

@@ -1,5 +1,9 @@
 function generarQR() {
     var type = this.dataset.type; // esto asumirá que el botón presionado tiene un data-type atributo
+    if (!type) {
+        alert('Por favor, selecciona el tipo de QR que deseas generar.');
+        return; // Detiene la ejecución de la función si no se ha seleccionado un tipo
+    }
     var qrData = '';
 
     switch (type) {
@@ -18,6 +22,11 @@ function generarQR() {
             var emailAddress = document.getElementById('email-address').value;
             var emailSubject = document.getElementById('email-subject').value;
             var emailMessage = document.getElementById('email-message').value;
+
+            if (!emailAddress) {
+                alert('Por favor, ingresa una Correo.');
+                return;
+            }
             
             qrData = 'mailto:' + encodeURIComponent(emailAddress);
             var params = [];
@@ -93,12 +102,51 @@ function generarQR() {
             var qrPreviewDiv = document.querySelector('.qr-preview');
             qrPreviewDiv.innerHTML = ''; // Limpia el contenido actual
             qrPreviewDiv.appendChild(newImg); // Añade la nueva imagen QR
+            
+            // Borrar el contenido del campo basado en el tipo de QR
+            switch (type) {
+                case 'url':
+                    document.getElementById('qr-url-input').value = '';
+                    break;
+                case 'email':
+                    document.getElementById('email-address').value = '';
+                    document.getElementById('email-subject').value = '';
+                    document.getElementById('email-message').value = '';
+                    break;
+                case 'wifi':
+                    document.getElementById('wifi-red').value = '';
+                    document.getElementById('wifi-contraseña').value = '';
+                    break;
+                case 'sms':
+                    document.getElementById('sms-phone').value = '';
+                    document.getElementById('sms-message').value = '';
+                    break;
+                case 'texto':
+                    document.getElementById('qr-text-input').value = '';
+                    break;
+                // No es necesario un caso 'default' aquí
+            }
         })
         .catch(error => {
             console.error('Error al generar el QR:', error);
             alert('Hubo un error al generar el código QR.');
         });
 }
+
+//Establece el tipo de QR en URL por defecto
+document.addEventListener('DOMContentLoaded', function() {
+    // Establecer el tipo de QR por defecto como 'url'
+    var generateQRButton = document.getElementById('generate-qr');
+    if (generateQRButton) {
+        generateQRButton.dataset.type = 'url';
+    }
+
+    // Opcionalmente, también puedes mostrar automáticamente el área de entrada para URLs
+    var inputArea = document.getElementById('qr-url-area');
+    if (inputArea) {
+        inputArea.style.display = 'block';
+    }
+});
 
 // Event listeners para botones de tipo de QR
 var optionButtons = document.querySelectorAll('.option-button');

@@ -46,7 +46,6 @@
                         <button class="option-button" data-type="texto"><i class="material-icons">text_format</i> Texto</button>
                         <button class="option-button" data-type="email"><i class="material-icons">email</i> Email</button>
                         <button class="option-button" data-type="sms"><i class="material-icons">sms</i> SMS</button>
-                        <button class="option-button" data-type="contacto"><i class="material-icons">monetization_on</i> Bitcoin</button>
                         <button class="option-button" data-type="wifi"><i class="material-icons">group</i> Wifi</button>
                     </div>
                     <div id="qr-url-area" style="display: none;">
@@ -118,11 +117,45 @@
                             <div class="options">
                                 <!-- Botones para opciones de marco -->
                                 <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
-                                <button class="option-button frame-option" data-type="simple"><img src="" alt="Simple" /></button>
+                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
                                 <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
                                 <!-- Más botones de marcos si son necesarios -->
                             </div>
                         </div>
+
+<div class="option-category">
+                            <h3>COLOR</h3>
+                            <div class="options">
+                                <!-- Botones para opciones de marco -->
+                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
+                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
+                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+                                <!-- Más botones de marcos si son necesarios -->
+								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+                            </div>
+                        </div>
+
+
+<div class="option-category">
+                            <h3>LOGOTIPO</h3>
+                            <div class="options">
+                                <!-- Botones para opciones de marco -->
+                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
+                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
+                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+                                <!-- Más botones de marcos si son necesarios -->
+                            </div>
+                        
+	<div class="upload-area">
+	<span class="upload-link">Sube tu archivo</span>
+    <input type="file" id="file-upload" style="display:none;" />
+	</div>
+  </div>
+  </div>
+</div>
+
                         <!-- Más categorías de opciones si son necesarias -->
                         <div class="download-options">
                             <button class="download-button" data-format="jpg">DESCARGAR JPG</button>
@@ -414,5 +447,6 @@
 		</div>
 
 <script src="assets/js/generarQr.js"></script>
+<script src="assets/js/modificarQr.js"></script>
 
 {% endblock %}
