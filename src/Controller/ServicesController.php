@@ -17,16 +17,25 @@ class ServicesController extends AbstractController
     #[Route('/generar-qr', name: 'generar_qr')]
     public function generarQr(Request $request): Response
 {
+
     $url = $request->query->get('url');
+    $size = $request->query->get('size');
+    
+    if (!in_array($size, [100, 200, 300, 400, 500])) {
+        $size = 200; // Tamaño por defecto si el valor no es válido
+    }
+
     $qrCode = Builder::create()
         ->writer(new PngWriter())
         ->writerOptions([])
         ->data($url)
         ->encoding(new Encoding('UTF-8'))
+        ->size($size)
         ->build();
 
     $response = new Response($qrCode->getString());
     $response->headers->set('Content-Type', $qrCode->getMimeType());
+    $response->headers->set('Content-Disposition', 'attachment; filename="qr_code.png"');
 
     return $response;
 }

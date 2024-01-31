@@ -149,7 +149,7 @@
 }
 
 .qr-preview img {
-    max-width: 200px; /* Ajusta este valor al tamaño deseado */
+    max-width: none; /* Ajusta este valor al tamaño deseado */
     height: auto; /* Mantiene la relación de aspecto de la imagen */
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -171,6 +171,19 @@
     justify-content: space-around;
 }
 
+.qr-options .frame-option {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0px;
+    font-size: 14px;
+    color: #495057;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
 .qr-options .frame-option img {
     max-width: 100px;
     height: auto;
@@ -179,8 +192,16 @@
     padding: 5px;
 }
 
+.images-row {
+    margin-bottom: 0px;
+    display: flex; /* Esto alineará las imágenes horizontalmente */
+    justify-content: space-around; /* Esto distribuirá el espacio uniformemente alrededor de los elementos */
+    padding: 5px; /* Opcional, añade algo de relleno alrededor de las imágenes */
+    
+}
+
   /* Estilo para el texto 'Sube tu archivo' */
-  .upload-link {
+.upload-link {
   display: block;
   padding: 12px 16px;
   background-color: #ddd; /* Light grey background */
@@ -188,24 +209,25 @@
   margin-top: 10px; /* Space from the images above */
   border-top: 1px solid #ccc; /* Line to separate from the images */
   cursor: pointer; /* Change cursor to indicate it's clickable */
-  }
+}
 
   /* Estilo para el área de subida de archivos */
-  .upload-area {
+.upload-area {
     border-top: 1px solid #ccc; /* Línea para separar de las imágenes */
-    padding: 10px 0; /* Espaciado dentro del área de subida */
-  }
+    padding: 10px; /* Espaciado dentro del área de subida */
+    margin-bottom: 0px;
+}
   
   /* Estilo para el texto 'Sube tu archivo' */
-  .upload-link {
+.upload-link {
   display: block;
   padding: 12px 16px;
   background-color: #ddd; 
   text-align: center; 
-  margin-top: 10px; 
+  margin-top: 5px; 
   border-top: 1px solid #ccc; 
   cursor: pointer; 
-  }
+}
 
 .download-options {
     margin-top: 20px;

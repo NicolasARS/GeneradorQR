@@ -51,6 +51,7 @@
                     <div id="qr-url-area" style="display: none;">
 					<h2>URL:</h2>
                         <input type="text" id="qr-url-input" placeholder="Ingresa tu URL">
+						{{ include ('_partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-email-area" style="display:none;">
 						<h2>Código QR Email</h2>
@@ -68,10 +69,12 @@
 								<textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
+						{{ include ('_partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-text-area" style="display: none;">
 					<h2>Texto:</h2>
                         <textarea id="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
+						{{ include ('_partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-sms-area" style="display:none;">
 						<h2>SMS:</h2>
@@ -85,6 +88,7 @@
 								<textarea id="sms-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
+						{{ include ('_partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-wifi-area" style="display:none;">
 						<h2>Wifi:</h2>
@@ -98,6 +102,7 @@
 								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre..."></input>
 							</div>
 						</form>
+						{{ include ('_partials/_sizeQR.html.twig')}}
 					</div>
 					
                     <button id="generate-qr" onclick="generarQR()" class="btn btn-border ripple">
@@ -108,57 +113,62 @@
             <div class="col-md-6">
                 <div class="qr-section">
                     <div class="qr-preview">
-                        <img src="{{asset('assets/img/qr-preview.png')}}" alt="QR Code" class="img-fluid" />
+                        <img src="{{asset('assets/img/qr-preview.png')}}" alt="QR Code" class="img-fluid" width="250px" />
+						<div class="qr-preview"></div>
+
                     </div>
                     <div class="qr-options">
                         <!-- Suponiendo que tendrás opciones de marcos y estilos para los QRs -->
-                        <div class="option-category">
-                            <h3>MARCO <span class="new">¡NOVEDAD!</span></h3>
-                            <div class="options">
-                                <!-- Botones para opciones de marco -->
-                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
-                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
-                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
-                                <!-- Más botones de marcos si son necesarios -->
-                            </div>
-                        </div>
 
-<div class="option-category">
-                            <h3>COLOR</h3>
-                            <div class="options">
-                                <!-- Botones para opciones de marco -->
-                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
-                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
-                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
+						<div class="accordion">
+								<div class="row gutters-default">
+									<div class="col-lg-12 col-12">
+										<ul class="accordion-list">
+											<li class="accordion-item section-bgc option-category">
+												<div class="accordion-trigger">MARCO<span class="new">¡NOVEDAD!</span></div>
+												<div class="accordion-content content">
+												<div class="images-row">
+													<button class="frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
+                                <button class="frame-option" data-type="elegant"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Elegante" /></button>
                                 <!-- Más botones de marcos si son necesarios -->
-								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
-								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
-								<button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
-                            </div>
-                        </div>
+								<button class="frame-option" data-type="elegant"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Elegante" /></button>
+								<button class="frame-option" data-type="elegant"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Elegante" /></button>
+												</div>
+												</div>
+											</li>
+											<li class="accordion-item section-bgc option-category">
+												<div class="accordion-trigger">COLOR</div>
+												<div class="accordion-content content">
+												<div class="images-row">
+													<button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
+                                
+								<label for="colorForeground">Color del QR:</label>
+<input type="color" id="colorForeground" name="colorForeground" value="#000000"> <!-- Negro por defecto -->
 
-
-<div class="option-category">
-                            <h3>LOGOTIPO</h3>
-                            <div class="options">
-                                <!-- Botones para opciones de marco -->
-                                <!-- Asegúrate de reemplazar 'path_to_frame_image' con la ruta real de las imágenes -->
-                                <button class="option-button frame-option" data-type="simple"><img src="{{asset('assets/img/—Pngtree—qr code scan me png_8091304.png')}}" alt="Simple" /></button>
-                                <button class="option-button frame-option" data-type="elegant"><img src="" alt="Elegante" /></button>
-                                <!-- Más botones de marcos si son necesarios -->
-                            </div>
-                        
-	<div class="upload-area">
-	<span class="upload-link">Sube tu archivo</span>
+<label for="colorBackground">Color de Fondo:</label>
+<input type="color" id="colorBackground" name="colorBackground" value="#ffffff"> <!-- Blanco por defecto -->
+												</div>
+												</div>
+											</li>
+											<li class="accordion-item section-bgc option-category">
+												<div class="accordion-trigger">LOGOTIPO</div>
+												<div class="accordion-content content">
+												
+												
+	<span class="upload-link">Sube tu logo</span>
     <input type="file" id="file-upload" style="display:none;" />
 	</div>
-  </div>
+											</li>
+										</ul>
+									</div>
+								</div>
+						</div>
   </div>
 </div>
 
-                        <!-- Más categorías de opciones si son necesarias -->
+                        <!-- Botones de descarga -->
                         <div class="download-options">
-                            <button class="download-button" data-format="jpg">DESCARGAR JPG</button>
+                            <button class="download-button">DESCARGAR JPG</button>
                             <button class="download-button" data-format="vector">VECTOR SVG/EPS</button>
                         </div>
                     </div>

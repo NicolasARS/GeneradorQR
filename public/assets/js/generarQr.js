@@ -9,14 +9,14 @@ function generarQR() {
     switch (type) {
         case 'url':
             // Lógica para URLs
-                var url = document.getElementById('qr-url-input').value;
-                if (!url) {
-                    alert('Por favor, ingresa una URL.');
-                    return;
-                }
-                qrData = encodeURIComponent(url);
+            var url = document.getElementById('qr-url-input').value;
+            if (!url) {
+                alert('Por favor, ingresa una URL.');
+                return;
+            }
+            qrData = encodeURIComponent(url);
             break;
-            
+
         case 'email':
             // Lógica para Emails
             var emailAddress = document.getElementById('email-address').value;
@@ -27,7 +27,7 @@ function generarQR() {
                 alert('Por favor, ingresa una Correo.');
                 return;
             }
-            
+
             qrData = 'mailto:' + encodeURIComponent(emailAddress);
             var params = [];
             if (emailSubject) {
@@ -47,11 +47,11 @@ function generarQR() {
             var password = document.getElementById('wifi-contraseña').value;
 
             if (!ssid) {
-            alert('Por favor, ingresa el nombre de la red WiFi.');
-            return;
-        }
-        qrData = 'WIFI:S:' + encodeURIComponent(ssid) + ';T:WPA;P:' + encodeURIComponent(password) + ';;';
-        break;
+                alert('Por favor, ingresa el nombre de la red WiFi.');
+                return;
+            }
+            qrData = 'WIFI:S:' + encodeURIComponent(ssid) + ';T:WPA;P:' + encodeURIComponent(password) + ';;';
+            break;
             break;
 
         case 'sms':
@@ -60,12 +60,12 @@ function generarQR() {
             var mensaje = document.getElementById('sms-message').value;
 
             if (!telefono) {
-            alert('Por favor, ingresa un número de teléfono.');
-            return;
-        }
-        qrData = 'sms:' + encodeURIComponent(telefono) + '?body=' + encodeURIComponent(mensaje);
+                alert('Por favor, ingresa un número de teléfono.');
+                return;
+            }
+            qrData = 'sms:' + encodeURIComponent(telefono) + '?body=' + encodeURIComponent(mensaje);
             break;
-        
+
         case 'texto':
             // Lógica para Texto
             var texto = document.getElementById('qr-text-input').value; // Asegúrate de que este es el ID correcto
@@ -80,8 +80,10 @@ function generarQR() {
             return;
     }
 
+    var size = document.getElementById('sizeqr').value;
+
     // Hacer la solicitud fetch al backend para generar el QR
-    fetch('/generar-qr?url=' + qrData)
+    fetch('/generar-qr?url=' + qrData + '&size=' + size)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok: ' + response.statusText);
@@ -93,7 +95,7 @@ function generarQR() {
             var newImg = document.createElement('img');
             var url = URL.createObjectURL(blob);
 
-            newImg.onload = function() {
+            newImg.onload = function () {
                 // No necesitas más el blob, así que liberamos la memoria
                 URL.revokeObjectURL(url);
             };
@@ -102,7 +104,7 @@ function generarQR() {
             var qrPreviewDiv = document.querySelector('.qr-preview');
             qrPreviewDiv.innerHTML = ''; // Limpia el contenido actual
             qrPreviewDiv.appendChild(newImg); // Añade la nueva imagen QR
-            
+
             // Borrar el contenido del campo basado en el tipo de QR
             switch (type) {
                 case 'url':
@@ -134,7 +136,7 @@ function generarQR() {
 }
 
 //Establece el tipo de QR en URL por defecto
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Establecer el tipo de QR por defecto como 'url'
     var generateQRButton = document.getElementById('generate-qr');
     if (generateQRButton) {
@@ -150,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Event listeners para botones de tipo de QR
 var optionButtons = document.querySelectorAll('.option-button');
-optionButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
+optionButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
         var type = this.dataset.type;
-        
+
         // Mostrar el formulario de email si el tipo es 'email'
         var inputArea = document.getElementById('qr-url-area');
         var emailForm = document.getElementById('qr-email-area');
