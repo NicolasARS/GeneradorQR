@@ -104,6 +104,7 @@ function generarQR() {
             var qrPreviewDiv = document.querySelector('.qr-preview');
             qrPreviewDiv.innerHTML = ''; // Limpia el contenido actual
             qrPreviewDiv.appendChild(newImg); // Añade la nueva imagen QR
+            qrPreviewDiv.dataset.qrData = qrData;
 
             // Borrar el contenido del campo basado en el tipo de QR
             switch (type) {

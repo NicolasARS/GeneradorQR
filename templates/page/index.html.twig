@@ -168,9 +168,9 @@
 
                         <!-- Botones de descarga -->
                         <div class="download-options">
-                            <button class="download-button">DESCARGAR JPG</button>
-                            <button class="download-button" data-format="vector">VECTOR SVG/EPS</button>
-                        </div>
+    <button class="download-button" id="download-jpg" data-format="jpg">DESCARGAR JPG</button>
+    <button class="download-button" id="download-vector" data-format="svg">VECTOR SVG/EPS</button>
+</div>
                     </div>
                 </div>
             </div>
@@ -458,5 +458,6 @@
 
 <script src="assets/js/generarQr.js"></script>
 <script src="assets/js/modificarQr.js"></script>
+<script src="{{asset("assets/js/descargarQr.js")}}"></script>
 
 {% endblock %}
