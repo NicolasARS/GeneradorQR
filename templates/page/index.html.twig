@@ -51,7 +51,7 @@
                     <div id="qr-url-area" style="display: none;">
 					<h2>URL:</h2>
                         <input type="text" id="qr-url-input" placeholder="Ingresa tu URL">
-						{{ include ('_partials/_sizeQR.html.twig')}}
+						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-email-area" style="display:none;">
 						<h2>Código QR Email</h2>
@@ -69,12 +69,12 @@
 								<textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
-						{{ include ('_partials/_sizeQR.html.twig')}}
+						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
-					<div id="qr-text-area" style="display: none;">
+					<div id="qr-texto-area" style="display: none;">
 					<h2>Texto:</h2>
                         <textarea id="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
-						{{ include ('_partials/_sizeQR.html.twig')}}
+						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-sms-area" style="display:none;">
 						<h2>SMS:</h2>
@@ -88,7 +88,7 @@
 								<textarea id="sms-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
-						{{ include ('_partials/_sizeQR.html.twig')}}
+						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-wifi-area" style="display:none;">
 						<h2>Wifi:</h2>
@@ -99,10 +99,10 @@
 							</div>
 							<div class="form-group">
 								<label for="wifi-contraseña">Contraseña:</label>
-								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre..."></input>
+								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre...">
 							</div>
 						</form>
-						{{ include ('_partials/_sizeQR.html.twig')}}
+						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
 					
                     <button id="generate-qr" onclick="generarQR()" class="btn btn-border ripple">

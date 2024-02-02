@@ -80,7 +80,9 @@ function generarQR() {
             return;
     }
 
-    var size = document.getElementById('sizeqr').value;
+    // Encuentra el selector de tamaño activo basado en el tipo de QR
+    var sizeSelector = document.querySelector('#qr-' + type + '-area .sizeqr');
+    var size = sizeSelector ? sizeSelector.value : '200'; // Usar un valor por defecto si no se encuentra
 
     // Hacer la solicitud fetch al backend para generar el QR
     fetch('/generar-qr?url=' + qrData + '&size=' + size)
@@ -160,7 +162,7 @@ optionButtons.forEach(function (button) {
         // Mostrar el formulario de email si el tipo es 'email'
         var inputArea = document.getElementById('qr-url-area');
         var emailForm = document.getElementById('qr-email-area');
-        var textArea = document.getElementById('qr-text-area'); // Asegúrate de que este es el ID correcto
+        var textArea = document.getElementById('qr-texto-area'); // Asegúrate de que este es el ID correcto
         var smsArea = document.getElementById('qr-sms-area');
         var wifiArea = document.getElementById('qr-wifi-area');
 
