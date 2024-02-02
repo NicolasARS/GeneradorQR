@@ -1,5 +1,5 @@
-document.getElementById('colorForeground').addEventListener('input', cambiarColorQr);
-document.getElementById('colorBackground').addEventListener('input', cambiarColorQr);
+document.getElementById('colorForeground').addEventListener('change', cambiarColorQr);
+document.getElementById('colorBackground').addEventListener('change', cambiarColorQr);
 
 function cambiarColorQr() {
     var colorForeground = document.getElementById('colorForeground').value;

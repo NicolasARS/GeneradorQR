@@ -101,6 +101,21 @@
 								<label for="wifi-contraseña">Contraseña:</label>
 								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre...">
 							</div>
+							 <div class="form-group">
+            <label>Seguridad:</label>
+            <div>
+                <input type="radio" id="wifi-ninguna" name="wifi-seguridad" value="ninguna" checked>
+                <label for="wifi-ninguna">Ninguna</label>
+            </div>
+            <div>
+                <input type="radio" id="wifi-wpa" name="wifi-seguridad" value="WPA">
+                <label for="wifi-wpa">WPA/WPA2</label>
+            </div>
+            <div>
+                <input type="radio" id="wifi-wep" name="wifi-seguridad" value="WEP">
+                <label for="wifi-wep">WEP</label>
+            </div>
+        </div>
 						</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>

@@ -11,8 +11,8 @@ document.getElementById('download-vector').addEventListener('click', function ()
 function descargarQR(formato) {
     var qrData = document.querySelector('.qr-preview').dataset.qrData;
     var size = document.querySelector('.qr-preview').dataset.size; // Obtiene el tamaño del dataset
-    var colorForeground = document.querySelector('.qr-preview').dataset.colorForeground;
-    var colorBackground = document.querySelector('.qr-preview').dataset.colorBackground;
+    var colorForeground = document.querySelector('.qr-preview').dataset.colorForeground || '#000000'; // Negro por defecto;
+    var colorBackground = document.querySelector('.qr-preview').dataset.colorBackground || '#FFFFFF'; // Blanco por defecto;
 
     if (!qrData) {
         alert('No se ha generado ningún QR o se ha perdido la información.');

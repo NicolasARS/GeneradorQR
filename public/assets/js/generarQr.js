@@ -45,13 +45,21 @@ function generarQR() {
             // Lógica para WiFi
             var ssid = document.getElementById('wifi-red').value;
             var password = document.getElementById('wifi-contraseña').value;
+            var securityType = document.querySelector('input[name="wifi-seguridad"]:checked').value;
 
             if (!ssid) {
                 alert('Por favor, ingresa el nombre de la red WiFi.');
                 return;
             }
-            qrData = 'WIFI:S:' + encodeURIComponent(ssid) + ';T:WPA;P:' + encodeURIComponent(password) + ';;';
-            break;
+
+            qrData = 'WIFI:S:' + encodeURIComponent(ssid) + ';';
+            if (securityType !== 'ninguna') {
+                qrData += 'T:' + securityType + ';';
+                if (password) {
+                    qrData += 'P:' + encodeURIComponent(password) + ';';
+                }
+            }
+            qrData += ';';
             break;
 
         case 'sms':
