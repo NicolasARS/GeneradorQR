@@ -11,6 +11,8 @@ document.getElementById('download-vector').addEventListener('click', function ()
 function descargarQR(formato) {
     var qrData = document.querySelector('.qr-preview').dataset.qrData;
     var size = document.querySelector('.qr-preview').dataset.size; // Obtiene el tamaño del dataset
+    var colorForeground = document.querySelector('.qr-preview').dataset.colorForeground;
+    var colorBackground = document.querySelector('.qr-preview').dataset.colorBackground;
 
     if (!qrData) {
         alert('No se ha generado ningún QR o se ha perdido la información.');
@@ -18,7 +20,7 @@ function descargarQR(formato) {
     }
 
     // Hacer la solicitud fetch al backend para generar el QR en el formato especificado
-    fetch('/generar-qr?url=' + qrData + '&size=' + size + '&format=' + formato)
+    fetch('/generar-qr?url=' + qrData + '&size=' + size + '&format=' + formato + '&colorForeground=' + encodeURIComponent(colorForeground) + '&colorBackground=' + encodeURIComponent(colorBackground))
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok: ' + response.statusText);
