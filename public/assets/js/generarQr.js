@@ -107,6 +107,7 @@ function generarQR() {
             qrPreviewDiv.innerHTML = ''; // Limpia el contenido actual
             qrPreviewDiv.appendChild(newImg); // Añade la nueva imagen QR
             qrPreviewDiv.dataset.qrData = qrData;
+            qrPreviewDiv.dataset.size = size; // Guarda el tamaño en el dataset
 
             // Borrar el contenido del campo basado en el tipo de QR
             switch (type) {
@@ -151,6 +152,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (inputArea) {
         inputArea.style.display = 'block';
     }
+
+    var selectors = document.querySelectorAll('.sizeqr');
+    selectors.forEach(function (selector) {
+        selector.value = '200';
+    });
+
 });
 
 // Event listeners para botones de tipo de QR

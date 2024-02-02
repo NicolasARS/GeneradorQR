@@ -10,13 +10,12 @@ document.getElementById('download-vector').addEventListener('click', function ()
 
 function descargarQR(formato) {
     var qrData = document.querySelector('.qr-preview').dataset.qrData;
+    var size = document.querySelector('.qr-preview').dataset.size; // Obtiene el tamaño del dataset
 
     if (!qrData) {
         alert('No se ha generado ningún QR o se ha perdido la información.');
         return;
     }
-
-    var size = document.getElementById('sizeqr').value;
 
     // Hacer la solicitud fetch al backend para generar el QR en el formato especificado
     fetch('/generar-qr?url=' + qrData + '&size=' + size + '&format=' + formato)
