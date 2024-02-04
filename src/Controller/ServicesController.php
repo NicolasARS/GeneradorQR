@@ -24,7 +24,7 @@ class ServicesController extends AbstractController
         $colorBackground = $request->query->get('colorBackground', '#ffffff'); // Color por defecto: blanco
 
         if (!in_array($size, [100, 200, 300, 400, 500])) {
-            $size = 200; // Tamaño por defecto si el valor no es válido
+            $size = 300; // Tamaño por defecto si el valor no es válido
         }
 
         // Construir el código QR

@@ -90,7 +90,7 @@ function generarQR() {
 
     // Encuentra el selector de tamaño activo basado en el tipo de QR
     var sizeSelector = document.querySelector('#qr-' + type + '-area .sizeqr');
-    var size = sizeSelector ? sizeSelector.value : '200'; // Usar un valor por defecto si no se encuentra
+    var size = sizeSelector ? sizeSelector.value : '300'; // Usar un valor por defecto si no se encuentra
 
     // Hacer la solicitud fetch al backend para generar el QR
     fetch('/generar-qr?url=' + qrData + '&size=' + size)
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var selectors = document.querySelectorAll('.sizeqr');
     selectors.forEach(function (selector) {
-        selector.value = '200';
+        selector.value = '300';
     });
 
 });
