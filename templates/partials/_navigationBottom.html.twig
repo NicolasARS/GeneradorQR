@@ -1,0 +1,31 @@
+<div class="footer-item">
+<nav class="footer-nav">
+    <ul class="footer-mnu footer-mnu-line">
+        <li class="{{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}} lien">
+            <a href="{{ path('index') }}" data-title="Inicio" class="hover-link">
+                <span>Inicio</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}} lien">
+            <a href="{{ path('about') }}" data-title="Acerca de" class="hover-link">
+                <span>Acerca de</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'services')  ? 'active': ''}} lien">
+            <a href="{{ path('services') }}" data-title="Servicios" class="hover-link">
+                <span>Servicios</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}} lien">
+            <a href="{{ path('news') }}" data-title="Novedades" class="hover-link">
+                <span>Novedades</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}} lien">
+            <a href="{{ path('contact') }}" data-title="Contacto" class="hover-link">
+                <span>Contacto</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>

@@ -164,14 +164,15 @@
 												</div>
 											</li>
 											<li class="accordion-item section-bgc option-category">
-												<div class="accordion-trigger">LOGOTIPO</div>
-												<div class="accordion-content content">
-												
-												
-	<span class="upload-link">Sube tu logo</span>
-    <input type="file" id="file-upload" style="display:none;" />
-	</div>
-											</li>
+    <div class="accordion-trigger">LOGOTIPO</div>
+    <div class="accordion-content content">
+        <!-- Formulario de carga del logo -->
+        <form id="logo-form" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="upload-link">Sube tu logo</label>
+            <input type="file" name="logo" id="file-upload" style="display:none;"/>
+        </form>
+    </div>
+</li>
 										</ul>
 									</div>
 								</div>
