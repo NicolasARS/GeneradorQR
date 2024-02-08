@@ -59,7 +59,7 @@ class ServicesController extends AbstractController
     public function generarQrConLogo(Request $request): Response
     {
         // Recuperar datos del formulario
-        $url = $request->request->get('url'); // URL por defecto
+        $url = urldecode($request->request->get('url')); // URL por defecto
         $size = $request->request->get('size', 300); // Tamaño por defecto
         $format = $request->request->get('format');
         $colorForeground = $request->request->get('colorForeground', '#000000'); // Color por defecto: negro
