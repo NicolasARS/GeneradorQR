@@ -81,4 +81,34 @@ class PageController extends AbstractController
             'cookieAceptada' => $cookieAceptada
         ]);
     }
+
+    #[Route('/suscriptions', name: 'suscriptions')]
+    public function suscriptions(Request $request): Response
+    {
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/suscriptions.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
+    }
+
+    #[Route('/privacy-policy', name: 'privacy')]
+    public function privacy(Request $request): Response
+    {
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/privacy-policy.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
+    }
+
+    #[Route('/terms-and-conditions', name: 'terms')]
+    public function terms(Request $request): Response
+    {
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        return $this->render('page/terms-and-conditions.html.twig', [
+            'cookieAceptada' => $cookieAceptada
+        ]);
+    }
 }

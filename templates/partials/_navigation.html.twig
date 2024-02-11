@@ -6,13 +6,18 @@
             </a>
         </li>
         <li class="{{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}} lien">
-            <a href="{{ path('about') }}" data-title="Acerca de">
-                <span>Acerca de</span>
+            <a href="{{ path('about') }}" data-title="Quienes Somos">
+                <span>Quienes Somos</span>
             </a>
         </li>
         <li class="{{ (app.request.attributes.get('_route') == 'services')  ? 'active': ''}} lien">
             <a href="{{ path('services') }}" data-title="Servicios">
                 <span>Servicios</span>
+            </a>
+        </li>
+        <li class="{{ (app.request.attributes.get('_route') == 'suscriptions')  ? 'active': ''}} lien">
+            <a href="{{ path('suscriptions') }}" data-title="Suscripciones">
+                <span>Suscripciones</span>
             </a>
         </li>
         <li class="{{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}} lien">

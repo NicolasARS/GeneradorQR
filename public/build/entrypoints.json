@@ -1,0 +1,10 @@
+{
+  "entrypoints": {
+    "efectos": {
+      "js": [
+        "/build/runtime.js",
+        "/build/efectos.js"
+      ]
+    }
+  }
+}

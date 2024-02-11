@@ -90,7 +90,7 @@ class ServicesController extends AbstractController
             ->backgroundColor(new Color(hexdec(substr($colorBackground, 1, 2)), hexdec(substr($colorBackground, 3, 2)), hexdec(substr($colorBackground, 5, 2))));
 
         if ($logoPath) {
-            $logoSize = $size * 0.15;
+            $logoSize = $size * 0.20;
             $qrCode->logoPath($logoPath)
             ->logoResizeToWidth($logoSize)
             ->logoResizeToHeight($logoSize);

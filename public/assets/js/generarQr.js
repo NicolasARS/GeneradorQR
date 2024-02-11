@@ -207,5 +207,38 @@ optionButtons.forEach(function (button) {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
 // Event listener para el botón de generar QR
 document.getElementById('generate-qr').addEventListener('click', generarQR);
+
+ // Obtener el valor del parámetro 'type' de la URL
+ var urlParams = new URLSearchParams(window.location.search);
+ var typeToShow = urlParams.get('type');
+
+ // Mostrar la sección correspondiente y ocultar las demás
+ var inputArea = document.getElementById('qr-url-area');
+ var emailForm = document.getElementById('qr-email-area');
+ var textArea = document.getElementById('qr-texto-area');
+ var smsArea = document.getElementById('qr-sms-area');
+ var wifiArea = document.getElementById('qr-wifi-area');
+
+ // Ocultar todas las áreas
+ inputArea.style.display = 'none';
+ emailForm.style.display = 'none';
+ textArea.style.display = 'none';
+ smsArea.style.display = 'none';
+ wifiArea.style.display = 'none';
+
+ // Mostrar el área correspondiente al tipo proporcionado en la URL
+ if (typeToShow === 'url') {
+     inputArea.style.display = 'block';
+ } else if (typeToShow === 'email') {
+     emailForm.style.display = 'block';
+ } else if (typeToShow === 'texto') {
+     textArea.style.display = 'block';
+ } else if (typeToShow === 'sms') {
+     smsArea.style.display = 'block';
+ } else if (typeToShow === 'wifi') {
+     wifiArea.style.display = 'block';
+ }
+});
