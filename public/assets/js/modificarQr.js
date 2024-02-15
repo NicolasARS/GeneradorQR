@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('colorForeground').addEventListener('change', cambiarColorQr);
 document.getElementById('colorBackground').addEventListener('change', cambiarColorQr);
 
@@ -29,7 +30,7 @@ function cambiarColorQr() {
         });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+
     document.getElementById('colorForeground').value = '#000000'; // Establece a negro
     document.getElementById('colorBackground').value = '#ffffff'; // Establece a blanco
 

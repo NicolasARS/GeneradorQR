@@ -1,4 +1,7 @@
-function generarQR() {
+
+document.addEventListener('DOMContentLoaded', function () {
+    
+    function generarQR() {
     var type = this.dataset.type; // esto asumirá que el botón presionado tiene un data-type atributo
     if (!type) {
         alert('Por favor, selecciona el tipo de QR que deseas generar.');
@@ -147,67 +150,7 @@ function generarQR() {
         });
 }
 
-//Establece el tipo de QR en URL por defecto
-document.addEventListener('DOMContentLoaded', function () {
-    // Establecer el tipo de QR por defecto como 'url'
-    var generateQRButton = document.getElementById('generate-qr');
-    if (generateQRButton) {
-        generateQRButton.dataset.type = 'url';
-    }
 
-    // Opcionalmente, también puedes mostrar automáticamente el área de entrada para URLs
-    var inputArea = document.getElementById('qr-url-area');
-    if (inputArea) {
-        inputArea.style.display = 'block';
-    }
-
-    var selectors = document.querySelectorAll('.sizeqr');
-    selectors.forEach(function (selector) {
-        selector.value = '300';
-    });
-
-});
-
-// Event listeners para botones de tipo de QR
-var optionButtons = document.querySelectorAll('.option-button');
-optionButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-        var type = this.dataset.type;
-
-        // Mostrar el formulario de email si el tipo es 'email'
-        var inputArea = document.getElementById('qr-url-area');
-        var emailForm = document.getElementById('qr-email-area');
-        var textArea = document.getElementById('qr-texto-area'); // Asegúrate de que este es el ID correcto
-        var smsArea = document.getElementById('qr-sms-area');
-        var wifiArea = document.getElementById('qr-wifi-area');
-
-        // Ocultar todos los campos
-        inputArea.style.display = 'none';
-        emailForm.style.display = 'none';
-        textArea.style.display = 'none';
-        smsArea.style.display = 'none';
-        wifiArea.style.display = 'none';
-
-
-        // Mostrar el campo adecuado basado en el tipo seleccionado
-        if (type === 'email') {
-            emailForm.style.display = 'block';
-        } else if (type === 'url') {
-            inputArea.style.display = 'block';
-        } else if (type === 'texto') {
-            textArea.style.display = 'block';
-        } else if (type === 'sms') {
-            smsArea.style.display = 'block';
-        } else if (type === 'wifi') {
-            wifiArea.style.display = 'block';
-        }
-
-        // Establecer el tipo de QR a generar
-        document.getElementById('generate-qr').dataset.type = type;
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
 // Event listener para el botón de generar QR
 document.getElementById('generate-qr').addEventListener('click', generarQR);
 
