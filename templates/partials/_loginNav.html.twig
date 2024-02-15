@@ -6,7 +6,10 @@
                     <p>Genera, comparte, <br class="d-sm-none"> conecta.</p>
                     <div class="btn-group justify-content-center justify-content-md-start">
                     {% if app.user %}
-                        <a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> {{ app.user.name }} - Cerrar Sesion</a>
+                        <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{ path('logout') }}" class="btn btn-border btn-with-icon btn-small ripple"><i class="fa fa-sign-out sr-icons"></i> 
+                        <span>{{ app.user.name }} - Cerrar Sesion</span>
+                        <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
+                        </a></li>
                         {% else %}
                         <li class="{{ (app.request.attributes.get('_route') == 'login')  ? 'active': ''}} lien"><a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
                             <span>Registrate</span>

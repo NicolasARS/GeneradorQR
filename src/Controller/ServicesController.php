@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\CodigoQR;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class ServicesController extends AbstractController
 {
     #[Route('/generar-qr', name: 'generar_qr')]
-    public function generarQr(Request $request): Response
+    public function generarQr(Request $request, EntityManagerInterface $entityManager): Response
     {
         $url = $request->query->get('url');
         $size = $request->query->get('size');
@@ -48,6 +50,25 @@ class ServicesController extends AbstractController
         // Obtener la instancia de QrCode después de construir
         $qrCode = $qrCode->build();
 
+        // Aquí es donde agregas la lógica para asignar el QR a un usuario y guardarlo
+        if ($this->getUser()) {
+            $codigoQR = new CodigoQR();
+            $codigoQR->setUrl($url);
+            $codigoQR->setSize($size);
+
+            // Establecer el formato solo si se ha proporcionado uno
+            if (!empty($format)) {
+                $codigoQR->setFormat($format);
+            }
+            
+            $codigoQR->setColorForeground($colorForeground);
+            $codigoQR->setColorBackground($colorBackground);
+            $codigoQR->setUsuario($this->getUser()); // Asegúrate de tener un método setUsuario en CodigoQR
+
+            $entityManager->persist($codigoQR);
+            $entityManager->flush();
+        }
+
         $response = new Response($qrCode->getString());
         $response->headers->set('Content-Type', $qrCode->getMimeType());
         $response->headers->set('Content-Disposition', 'attachment; filename="qr_code.' . $format . '"');
@@ -56,7 +77,7 @@ class ServicesController extends AbstractController
     }
 
     #[Route('/generar-qr-con-logo', name: 'generar_qr_con_logo', methods: ['POST'])]
-    public function generarQrConLogo(Request $request): Response
+    public function generarQrConLogo(Request $request, EntityManagerInterface $entityManager): Response
     {
         // Recuperar datos del formulario
         $url = urldecode($request->request->get('url')); // URL por defecto
@@ -105,6 +126,24 @@ class ServicesController extends AbstractController
 
         // Obtener la instancia de QrCode después de construir
         $qrCode = $qrCode->build();
+
+        if ($this->getUser()) { // Verificar si el usuario está autenticado
+            $codigoQR = new CodigoQR();
+            $codigoQR->setUrl($url);
+            $codigoQR->setSize($size);
+            if (!empty($format)) { // Asignar formato si está presente
+                $codigoQR->setFormat($format);
+            }
+            $codigoQR->setColorForeground($colorForeground);
+            $codigoQR->setColorBackground($colorBackground);
+            if ($logoPath) { // Asignar logoPath si se ha cargado un logo
+                $codigoQR->setLogoPath($logoPath);
+            }
+            $codigoQR->setUsuario($this->getUser()); // Asociar el código QR al usuario autenticado
+    
+            $entityManager->persist($codigoQR);
+            $entityManager->flush(); // Guardar el código QR en la base de datos
+        }
 
         $response = new Response($qrCode->getString());
         $response->headers->set('Content-Type', $qrCode->getMimeType());
