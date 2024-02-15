@@ -247,6 +247,11 @@
 }
 
 
+label.error {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
 @media (max-width: 767px) {
     .options {
         flex-direction: column;

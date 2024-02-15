@@ -50,7 +50,9 @@
                     </div>
                     <div id="qr-url-area" style="display: none;">
 					<h2>URL:</h2>
-                        <input type="text" id="qr-url-input" placeholder="Ingresa tu URL">
+					<form id="qr-url-form">
+                        <input type="text" id="qr-url-input" name="qr-url-input" placeholder="Ingresa tu URL">
+					</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-email-area" style="display:none;">
@@ -58,22 +60,24 @@
 						<form id="qr-email-form">
 							<div class="form-group">
 								<label for="email-address">Email:</label>
-								<input type="email" id="email-address" placeholder="Dirección de email" required>
+								<input type="email" id="email-address" name="email-address" placeholder="Dirección de email" required>
 							</div>
 							<div class="form-group">
 								<label for="email-subject">Asunto:</label>
-								<input type="text" id="email-subject" placeholder="Asunto del email">
+								<input type="text" id="email-subject" name="email-subject" placeholder="Asunto del email">
 							</div>
 							<div class="form-group">
 								<label for="email-message">Mensaje:</label>
-								<textarea id="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
+								<textarea id="email-message" name="email-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-texto-area" style="display: none;">
 					<h2>Texto:</h2>
-                        <textarea id="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
+					<form id="qr-text-form">
+                        <textarea id="qr-text-input" name="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
+					</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-sms-area" style="display:none;">
@@ -81,11 +85,11 @@
 						<form id="qr-sms-form">
 							<div class="form-group">
 								<label for="sms-phone">Telefono:</label>
-								<input type="tel" id="sms-phone" placeholder="Numero de telefono" required>
+								<input type="tel" id="sms-phone" name="sms-phone" placeholder="Numero de telefono" required>
 							</div>
 							<div class="form-group">
 								<label for="sms-message">Mensaje:</label>
-								<textarea id="sms-message" placeholder="Por favor, envíenme información sobre..."></textarea>
+								<textarea id="sms-message" name="sms-message" placeholder="Por favor, envíenme información sobre..."></textarea>
 							</div>
 						</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
@@ -95,11 +99,11 @@
 						<form id="qr-wifi-form">
 							<div class="form-group">
 								<label for="wifi-red">Nombre de la red:</label>
-								<input type="text" id="wifi-red" placeholder="SSID" required>
+								<input type="text" id="wifi-red" name="wifi-red" placeholder="SSID" required>
 							</div>
 							<div class="form-group">
 								<label for="wifi-contraseña">Contraseña:</label>
-								<input type="text" id="wifi-contraseña" placeholder="Por favor, envíenme información sobre...">
+								<input type="text" id="wifi-contraseña" name="wifi-contraseña" placeholder="Por favor, envíenme información sobre...">
 							</div>
 							 <div class="form-group">
             <label>Seguridad:</label>

@@ -19,36 +19,54 @@ function descargarQR(formato) {
         return;
     }
 
-    // Hacer la solicitud fetch al backend para generar el QR en el formato especificado
-    fetch('/generar-qr?url=' + qrData + '&size=' + size + '&format=' + formato + '&colorForeground=' + encodeURIComponent(colorForeground) + '&colorBackground=' + encodeURIComponent(colorBackground))
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok: ' + response.statusText);
-            }
-            return response.blob();
-        })
-        .then(blob => {
-            // Crear un URL con el blob recibido y activar la descarga
-            var url = URL.createObjectURL(blob);
+    // Preparar FormData para solicitud POST
+    var formData = new FormData();
+    formData.append('url', qrData);
+    formData.append('size', size);
+    formData.append('format', formato);
+    formData.append('colorForeground', colorForeground);
+    formData.append('colorBackground', colorBackground);
 
-            // Crear un elemento <a> oculto para la descarga
-            var a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'qr_code.' + formato;
+    // Añadir el archivo de logo si está presente
+    // Asegúrate de tener un input de tipo 'file' con id 'logoFile' en tu HTML
+    var logoFileInput = document.getElementById('file-upload');
+    if (logoFileInput && logoFileInput.files[0]) {
+        formData.append('logo', logoFileInput.files[0]);
+    }
 
-            // Agregar el elemento <a> al DOM y simular un clic para iniciar la descarga
-            document.body.appendChild(a);
-            a.click();
+    fetch('/generar-qr-con-logo', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Crear un URL con el blob recibido y activar la descarga
+        var url = URL.createObjectURL(blob);
 
-            // Eliminar el elemento <a> después de la descarga
-            document.body.removeChild(a);
+        // Crear un elemento <a> oculto para la descarga
+        var a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        // Ajusta el nombre del archivo de descarga según sea necesario
+        a.download = 'QuickScanCode-QR.' + formato;
 
-            // No necesitas más el blob, así que liberamos la memoria
-            URL.revokeObjectURL(url);
-        })
-        .catch(error => {
-            console.error('Error al generar/descargar el QR:', error);
-            alert('Hubo un error al generar o descargar el código QR.');
-        });
+        // Agregar el elemento <a> al DOM y simular un clic para iniciar la descarga
+        document.body.appendChild(a);
+        a.click();
+
+        // Eliminar el elemento <a> después de la descarga
+        document.body.removeChild(a);
+
+        // Liberar el URL del blob
+        URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Error al generar/descargar el QR:', error);
+        alert('Hubo un error al generar o descargar el código QR.');
+    });
 }

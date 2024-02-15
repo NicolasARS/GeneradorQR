@@ -1,12 +1,41 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     
     function generarQR() {
     var type = this.dataset.type; // esto asumirá que el botón presionado tiene un data-type atributo
+    
     if (!type) {
         alert('Por favor, selecciona el tipo de QR que deseas generar.');
         return; // Detiene la ejecución de la función si no se ha seleccionado un tipo
     }
+
+    var isValid = true;
+
+    switch(type) {
+        case 'url':
+            isValid = $("#qr-url-form").valid();
+            break;
+        case 'email':
+            isValid = $("#qr-email-form").valid();
+            break;
+        case 'texto':
+            isValid = $("#qr-text-form").valid();
+            break;
+        case 'sms':
+            isValid = $("#qr-sms-form").valid();
+            break;
+        case 'wifi':
+            isValid = $("#qr-wifi-form").valid();
+            break;
+        default:
+            console.error('Tipo no reconocido:', type);
+            isValid = false; // Si el tipo no es reconocido, marca la validación como fallida.
+    }
+
+    if (!isValid) {
+        alert('Por favor, corrige los errores antes de generar el QR.');
+        return; // Detiene la ejecución si la validación falla
+    }
+    
     var qrData = '';
 
     switch (type) {
@@ -80,10 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
         case 'texto':
             // Lógica para Texto
             var texto = document.getElementById('qr-text-input').value; // Asegúrate de que este es el ID correcto
-            if (!texto) {
-                alert('Por favor, ingresa un texto.');
-                return;
-            }
             qrData = encodeURIComponent(texto);
             break;
         default:

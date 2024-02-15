@@ -108,7 +108,7 @@ class ServicesController extends AbstractController
 
         $response = new Response($qrCode->getString());
         $response->headers->set('Content-Type', $qrCode->getMimeType());
-        $response->headers->set('Content-Disposition', 'attachment; filename="qr_code.' . $format . '"');
+        $response->headers->set('Content-Disposition', 'attachment; filename="QuickScanCode-QR.' . $format . '"');
 
         return $response;
     }
