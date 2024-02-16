@@ -96,7 +96,7 @@ class ServicesController extends AbstractController
 
             try {
                 $logoFile->move($uploadsDirectory, $logoFileName);
-                $logoPath = $uploadsDirectory.'/'.$logoFileName;
+                $logoPath = 'assets/uploads/logos/'.$logoFileName;
             } catch (FileException $e) {
                 // Manejar excepción aquí (puedes loguear el error)
             }

@@ -7,8 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Contact;
+use App\Entity\CodigoQR;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactFormType;
+use Doctrine\ORM\EntityManagerInterface;
 
 class PageController extends AbstractController
 {
@@ -82,16 +84,6 @@ class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/suscriptions', name: 'suscriptions')]
-    public function suscriptions(Request $request): Response
-    {
-        $cookieAceptada = $request->cookies->get('aceptar_cookies');
-
-        return $this->render('page/suscriptions.html.twig', [
-            'cookieAceptada' => $cookieAceptada
-        ]);
-    }
-
     #[Route('/privacy-policy', name: 'privacy')]
     public function privacy(Request $request): Response
     {
@@ -111,4 +103,20 @@ class PageController extends AbstractController
             'cookieAceptada' => $cookieAceptada
         ]);
     }
+
+    #[Route('/user-area', name: 'user-area')]
+    public function unserArea(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $cookieAceptada = $request->cookies->get('aceptar_cookies');
+
+        $usuario = $this->getUser();
+
+        $codigoQRs = $entityManager->getRepository(CodigoQR::class)->findBy(['usuario' => $usuario]);
+
+        return $this->render('page/user-area.html.twig', [
+            'cookieAceptada' => $cookieAceptada,
+            'codigoQRs' => $codigoQRs
+        ]);
+    }
+
 }

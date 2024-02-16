@@ -15,11 +15,6 @@
                 <span>Servicios</span>
             </a>
         </li>
-        <li class="{{ (app.request.attributes.get('_route') == 'suscriptions')  ? 'active': ''}} lien">
-            <a href="{{ path('suscriptions') }}" data-title="Suscripciones">
-                <span>Suscripciones</span>
-            </a>
-        </li>
         <li class="{{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}} lien">
             <a href="{{ path('news') }}" data-title="Novedades">
                 <span>Novedades</span>

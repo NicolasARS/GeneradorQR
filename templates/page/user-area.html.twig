@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block title %}Area usuario{% endblock %}
+{% block body %}
+<!-- Begin bread crumbs -->
+			<nav class="bread-crumbs">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<ul class="bread-crumbs-list">
+								<li>
+									<a href="{{ path('index') }}">Inicio</a>
+									<i class="material-icons md-18">chevron_right</i>
+								</li>
+								<li>Area de usuario</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav><!-- End bread crumbs -->
+
+							<!-- Begin news item -->
+							<section class="section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="section-heading heading-center">
+                                <div class="section-subheading">¡Bienvenido {{ app.user.name }}!</div>
+								<h2>Area de usuario</h2>
+							</div>
+							<div class="tabs tabs-vertical">
+								<ul class="tabs-nav section-bgc">
+									<li class="active">Cuenta</li>
+									<li>Codigos guardados</li>
+									<li>Tab 3</li>
+									<li>Tab 4</li>
+								</ul>
+								<div class="tabs-container">
+									<div class="tabs-item content active">
+										<ul>
+                                            <li>Nombre usuario: {{ app.user.name }}</li>
+                                            <li>Correo electronico: {{ app.user.email }}</li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+									</div>
+									<div class="tabs-item content">
+                                    
+										<table class="table-secondary">
+									<thead>
+										<tr>
+											<th>Identificador</th>
+											<th>Url</th>
+											<th>Size</th>
+											<th>Color pixel</th>
+											<th>Color fondo</th>
+											<th>Logo</th>
+                                            <th>Fecha de creacion</th>
+											<th>Descargar</th>
+                                            <th>Eliminar</th>
+										</tr>
+									</thead>
+									<tbody>
+                                        {% for codigoQR in codigoQRs %}
+										<tr>
+											 <td>{{ codigoQR.id }}</td>
+            <td>{{ codigoQR.url }}</td>
+            <td>{{ codigoQR.size }}</td>
+            <td>{{ codigoQR.colorForeground }}</td>
+            <td>{{ codigoQR.colorBackground }}</td>
+            <td>
+                {% if codigoQR.logoPath %}
+                    <img src="{{ asset(codigoQR.logoPath) }}" alt="Logo" width="50px">
+                {% else %}
+                    Sin Logo
+                {% endif %}
+            </td>
+            <td>{{ codigoQR.fechaCreacion|date('Y-m-d') }}</td>
+            <td>Implementando..</td>
+			<td>Implementando..</td>
+            {% else %}
+        <tr>
+            <td colspan="8">No se han encontrado códigos QR.</td>
+        </tr>
+    {% endfor %}
+											
+										</tr>
+									</tbody>
+								</table>
+									</div>
+									<div class="tabs-item content">
+										<p>A reasonable method would be to find the smallest element, write it down and cross it
+											out of the original list and repeat this process until you have sorted the whole
+											list. Then you have to teach the computer 1) how to find the smallest element, 2)
+											how to write it down, 3) how to cross it out, and wrap this in a loop. Then continue
+											this task breakdown process until you’re confident you know how to write the
+											necessary program.</p>
+									</div>
+									<div class="tabs-item content">
+										<p>Learning to program means learning how to solve problems using code. Conceptually it
+											is not very difficult to write a program that solves a problem that you can solve
+											yourself. The skill you need to acquire is thinking very precisely about how you
+											solve the problem and breaking it down into steps that are so simple that a computer
+											can execute them. I encourage you to first solve a few instances of a problem by
+											hand and think about what you did to find the solution. For example if the task is
+											sorting lists, sort some short lists yourself.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+{% endblock %}
