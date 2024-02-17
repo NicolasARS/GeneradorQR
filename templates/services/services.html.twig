@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}About{% endblock %}
+{% block title %}Servicios{% endblock %}
 {% block body %}
 <!-- Begin bread crumbs -->
 			<nav class="bread-crumbs">
@@ -8,7 +8,7 @@
 						<div class="col-12">
 							<ul class="bread-crumbs-list">
 								<li>
-									<a href="index.html">Inicio</a>
+									<a href="{{ path('index') }}" >Inicio</a>
 									<i class="material-icons md-18">chevron_right</i>
 								</li>
 								<li>Servicios</li>
@@ -31,7 +31,7 @@
 						<div class="col-12 item">
 							<div class="row items">
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'url'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('index') }}#qr-design-area" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">corporate_fare</i>
 										</div>
@@ -43,7 +43,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'texto'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('index') }}#qr-design-area" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">support_agent</i>
 										</div>
@@ -55,7 +55,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'email'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('index') }}#qr-design-area" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">cloud_done</i>
 										</div>
@@ -67,7 +67,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'sms'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('index') }}#qr-design-area" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">laptop_mac</i>
 										</div>
@@ -79,7 +79,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'wifi'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('index') }}#qr-design-area" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">phone_android</i>
 										</div>
@@ -91,7 +91,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xl-4 col-12 item">
-									<a href="{{ path('index', {'type': 'texto'}) }}#qr-design-area" class="iitem item-style iitem-hover">
+									<a href="{{ path('register') }}" class="iitem item-style iitem-hover">
 										<div class="iitem-icon">
 											<i class="material-icons material-icons-outlined md-48">tv</i>
 										</div>

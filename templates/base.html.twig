@@ -1,24 +1,29 @@
 <!DOCTYPE html><html lang="es">
 <head>
-
     <meta charset="utf-8">
-    <meta name="description" content="Description">
+    <!-- Meta Description -->
+    <meta name="description" content="QuickScanCode ofrece una herramienta fácil y rápida para generar códigos QR en línea. Accede a funciones básicas gratis o explora opciones avanzadas con nuestra suscripción premium. Ideal para negocios y uso personal.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
         
-    <link rel="icon" href="{{asset("assets/img/favicon/qr.png")}}" type="image/x-icon"> 
-    <title>{% block title %}Inicio{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset("assets/css/bootstrap-grid.css") }}">
-<link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
-<link rel="stylesheet" href="{{ asset("assets/css/styleScripts.css") }}">
+    <!-- Favicon -->
+    <link rel="icon" href="{{asset('assets/img/favicon/qr.png')}}" type="image/x-icon"> 
+    
+    <!-- Title -->
+    <title>{% block title %}QuickScanCode - Generador de Códigos QR{% endblock %}</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/styleScripts.css') }}">
+    
+    <!-- Preload Fonts -->
     <link rel="preload" href="{{ asset('assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ asset('assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ asset('assets/fonts/montserrat-v25-latin/montserrat-v25-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ asset('fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff2') }}" as="font" type="font/woff2" crossorigin>
-
-<link rel="preload" href="{{ asset('assets/fonts/material-icons/material-icons.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ asset("assets/fonts/material-icons/material-icons-outlined.woff2") }}" as="font" type="font/woff2" crossorigin>
-
+    <link rel="preload" href="{{ asset('assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/montserrat-v25-latin/montserrat-v25-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/material-icons/material-icons.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/material-icons/material-icons-outlined.woff2') }}" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
@@ -88,7 +93,7 @@
                 <div class="col-lg-3 col-md-4 col-12 item">
                     <div class="widget-brand-info">
                         <div class="widget-brand-info-main">
-                            <a href="index.html" title="QuickScanCode logo">
+                            <a href="{{ path('index') }}"  title="QuickScanCode logo">
                                 <img src="assets/img/Quickscancode-logo-black.png" width="300" height="60" alt="QuickScanCode logo">
                             </a>
                         </div>
@@ -112,7 +117,7 @@
                     </nav>
                 </div>
                 <div class="col-md-auto col-12 item">
-                    <div class="copyright">© 2024 QuickScanCode. Todos los derechos reservados.</div>
+                    <div class="copyright">© 2024 QuickScanCode. Programado por Nicolas Rivera, todos los derechos reservados.</div>
                 </div>
             </div>
         </div>

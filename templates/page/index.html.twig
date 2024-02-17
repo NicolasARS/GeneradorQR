@@ -13,11 +13,11 @@
 										<p class="section-desc">Sacale el maximo provecho a tus codigos QR con nuestra suscripcion premium.Obtén seguimiento avanzado de tus codigos y acceso a características exclusivas que te permitirán supervisar y analizar el rendimiento de tus códigos QR de manera más detallada.</p>
 									</div>
 									<div class="btn-group intro-btns">
-										<a href="https://www.templatemonster.com/website-templates/pathsoft-it-solutions-for-your-business-services-website-template-83414.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
+										<a href="{{path('register')}}" class="btn btn-border btn-with-icon btn-small ripple">
 											<span>Suscribirme</span>
 											<svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
 										</a>
-										<a href="https://www.templatemonster.com/wordpress-themes/pathsoft-it-solutions-for-your-business-services-wordpress-theme-99496.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
+										<a href="{{path('services')}}" class="btn btn-border btn-with-icon btn-small ripple">
 											<span>Mas informacion</span>
 											<svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
 										</a>
@@ -34,13 +34,21 @@
         <div class="row">
             <header class="col-12">
                 <div class="section-heading heading-center">
-                    <div class="section-subheading">Crea códigos QR dinámicos gratis</div>
+                    <div class="section-subheading">Unete a nosotros gratis</div>
                     <h1>Nuestros servicios</h1>
                     <p class="section-desc">Los Códigos QR que ofrecemos son completamente gratuitos y nunca expirarán, una vez creado, nunca lo perderás.</p>
                 </div>
             </header>
             <div class="col-md-6">
                 <div id="qr-generator">
+				<div class="heading-center">
+				<div class="section-subheading">Crea tu codigo aqui</div>
+				<h2>Zona de generacion</h2>
+					<p class="section-desc">- Elige el tipo de QR que quieres generar.<br>
+					- Rellena los campos necesarios.<br>
+					. Personaliza tu codigo a tus necesidades.
+					</p>
+					</div>
                     <div class="options">
                         <button id="url-section" class="option-button" data-type="url"><i class="material-icons">public</i> URL</button>
                         <button id="text-section" class="option-button" data-type="texto"><i class="material-icons">text_format</i> Texto</button>
@@ -49,14 +57,14 @@
                         <button id="wifi-section" class="option-button" data-type="wifi"><i class="material-icons">group</i> Wifi</button>
                     </div>
                     <div id="qr-url-area" style="display: none;">
-					<h2>URL:</h2>
+					<h3>URL:</h3>
 					<form id="qr-url-form">
                         <input type="text" id="qr-url-input" name="qr-url-input" placeholder="Ingresa tu URL">
 					</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-email-area" style="display:none;">
-						<h2>Código QR Email</h2>
+						<h3>Email:</h3>
 						<form id="qr-email-form">
 							<div class="form-group">
 								<label for="email-address">Email:</label>
@@ -74,14 +82,14 @@
 						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-texto-area" style="display: none;">
-					<h2>Texto:</h2>
+					<h3>Texto:</h3>
 					<form id="qr-text-form">
                         <textarea id="qr-text-input" name="qr-text-input" placeholder="Pega tu texto aqui:"></textarea>
 					</form>
 						{{ include ('partials/_sizeQR.html.twig')}}
                     </div>
 					<div id="qr-sms-area" style="display:none;">
-						<h2>SMS:</h2>
+						<h3>SMS:</h3>
 						<form id="qr-sms-form">
 							<div class="form-group">
 								<label for="sms-phone">Telefono:</label>
@@ -95,7 +103,7 @@
 						{{ include ('partials/_sizeQR.html.twig')}}
 					</div>
 					<div id="qr-wifi-area" style="display:none;">
-						<h2>Wifi:</h2>
+						<h3>Wifi:</h3>
 						<form id="qr-wifi-form">
 							<div class="form-group">
 								<label for="wifi-red">Nombre de la red:</label>
@@ -131,12 +139,21 @@
             </div>
             <div class="col-md-6">
                 <div class="qr-section">
+				<div class="heading-center">
+                    <div class="section-subheading">!Visualiza tu QR!</div>
+                    <h2>Zona preview</h2>
+                </div>
                     <div class="qr-preview">
                         <img src="{{asset('assets/img/qr-preview.png')}}" alt="QR Code" class="img-fluid" width="250px" />
-
+						
                     </div>
                     <div class="qr-options">
                         <!-- Suponiendo que tendrás opciones de marcos y estilos para los QRs -->
+						<div class="heading-center">
+				<div class="section-subheading">Personaliza tu codigo</div>
+				<h2>Zona de personalizacion</h2>
+					
+					</div>
 
 						<div class="accordion">
 								<div class="row gutters-default">
@@ -146,10 +163,10 @@
 												<div class="accordion-trigger">COLOR</div>
 												<div class="accordion-content content">
 												<div class="images-row">
-								<label for="colorForeground">Color del QR:</label>
+								<label for="colorForeground">Color del pixel:</label>
 <input type="color" id="colorForeground" name="colorForeground" value="#000000"> <!-- Negro por defecto -->
 
-<label for="colorBackground">Color de Fondo:</label>
+<label for="colorBackground">Color de fondo:</label>
 <input type="color" id="colorBackground" name="colorBackground" value="#ffffff"> <!-- Blanco por defecto -->
 												</div>
 												</div>
@@ -201,52 +218,55 @@
 							</div> 
 						</header>
 						<div class="col-lg-4 col-md-6 col-12 item">
+							<!-- Begin news item -->
 							<article class="news-item item-style">
-								<a href="news-post.html" class="news-item-img el">
-									<img data-src="assets/img/news-img-1.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="">
+								<a href="{{ path('services') }}" class="news-item-img el">
+									<img data-src="assets/img/flyers.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="flyers">
 								</a>
 								<div class="news-item-info">
-									<div class="news-item-date">07/01/2021</div>
-									<h3 class="news-item-heading item-heading">
-										<a href="news-post.html" title="Benefits Of Async/Await">Benefits Of Async/Await</a>
-									</h3>
+									<div class="news-item-date">17/02/2024</div>
+									<h2 class="news-item-heading item-heading">
+										<a href="news-post.html" title="Flyers">Flyers</a>
+									</h2>
 									<div class="news-item-desc">
-										<p>Asynchronous functions are a good and bad thing in JavaScript.</p>
+										<p>Combinar el marketing tradicional y el virtual aumenta las posibilidades de visibilidad e impacto de tu negocio</p>
 									</div>
 								</div>
-							</article>
+							</article><!-- End news item -->
 						</div>
 						<div class="col-lg-4 col-md-6 col-12 item">
+							<!-- Begin news item -->
 							<article class="news-item item-style">
-								<a href="news-post.html" class="news-item-img el">
-									<img data-src="assets/img/news-img-2.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="">
+								<a href="{{ path('services') }}" class="news-item-img el">
+									<img data-src="assets/img/folletos.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="tarjetas">
 								</a>
 								<div class="news-item-info">
-									<div class="news-item-date">05/01/2021</div>
-									<h3 class="news-item-heading item-heading">
-										<a href="news-post.html" title="Key Considerations Of IPaaS">Key Considerations Of IPaaS</a>
-									</h3>
+									<div class="news-item-date">17/02/2024</div>
+									<h2 class="news-item-heading item-heading">
+										<a href="news-post.html" title="Folletos">Folletos</a>
+									</h2>
 									<div class="news-item-desc">
-										<p>Digital transformation requires cloud appropriate adoption</p>
+										<p>Los códigos QR añaden un elemento interactivo a los folletos. Los consumidores pueden participar activamente escaneando el código y explorando el contenido digital asociado, lo que puede generar un mayor interés y participación.</p>
 									</div>
 								</div>
-							</article>
+							</article><!-- End news item -->
 						</div>
 						<div class="col-lg-4 col-md-6 col-12 item">
+							<!-- Begin news item -->
 							<article class="news-item item-style">
-								<a href="news-post.html" class="news-item-img el">
-									<img data-src="assets/img/news-img-3.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="">
-								</a>
+							<a href="{{ path('services') }}" class="news-item-img el">
+									<img data-src="assets/img/tarjetas.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="tarjetas">
+									</a>
 								<div class="news-item-info">
-									<div class="news-item-date">01/01/2021</div>
-									<h3 class="news-item-heading item-heading">
-										<a href="news-post.html" title="Hibernate Query Language">Hibernate Query Language</a>
-									</h3>
+									<div class="news-item-date">17/02/2024</div>
+									<h2 class="news-item-heading item-heading">
+										<a href="news-post.html" title="Tarjetas de visita">Tarjetas de visita</a>
+									</h2>
 									<div class="news-item-desc">
-										<p>In this tutorial, we will discuss the Hibernate Query Language. </p>
+										<p>Permite a las personas acceder fácilmente a información adicional sobre ti o tu empresa. </p>
 									</div>
 								</div>
-							</article>
+							</article><!-- End news item -->
 						</div>
 						<footer class="section-footer col-12 item section-footer-animate">
 							<div class="btn-group align-items-center justify-content-center">

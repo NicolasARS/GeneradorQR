@@ -94,20 +94,31 @@
 }
 
 .option-button {
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    padding: 5px 7px;
-    font-size: 14px;
-    color: #495057;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    background-color: #e9ecef; /* Color de fondo */
+    border: none; /* Quitamos el borde para un look más moderno */
+    border-radius: 0.25rem; /* Borde redondeado */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    font-size: 0.875rem; /* Tamaño del texto */
+    color: #495057; /* Color del texto */
+    cursor: pointer; /* Cursor de mano para indicar clic */
+    display: inline-flex; /* Display inline-flex para centrar íconos y texto */
+    align-items: center; /* Centrar elementos verticalmente */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Transición suave para el fondo y la sombra */
+}
+
+.option-button:hover {
+    background-color: #dae0e5; /* Cambio de color al pasar el cursor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar sensación de elevación */
+}
+
+.option-button:active {
+    background-color: #cbd3da; /* Color al hacer clic */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Sombra más pequeña al hacer clic */
 }
 
 .option-button i {
-    font-size: 20px;
-    margin-right: 8px;
+    font-size: 1.25rem; /* Tamaño del ícono */
+    margin-right: 0.5rem; /* Espaciado derecho para el ícono */
 }
 
 #input-area {
@@ -123,13 +134,24 @@
 }
 
 #generate-qr {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+    padding: 8px 15px; /* Reducción del espaciado interno para un tamaño más compacto */
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Texto en blanco para contraste */
+    border: none; /* Sin bordes para un diseño limpio */
+    border-radius: 4px; /* Bordes redondeados para suavidad */
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    width: 100%; /* Ancho completo para ocupar el contenedor */
+    transition: background-color 0.2s, transform 0.2s; /* Transiciones suaves */
+}
+
+#generate-qr:hover {
+    background-color: #0056b3; /* Color de hover más oscuro para mayor contraste */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+}
+
+#generate-qr:active {
+    background-color: #004085; /* Color aún más oscuro al hacer clic */
+    transform: translateY(1px); /* Efecto de presión para feedback de clic */
 }
 
 #qr-code {
@@ -212,44 +234,103 @@
 }
 
   /* Estilo para el área de subida de archivos */
-.upload-area {
-    border-top: 1px solid #ccc; /* Línea para separar de las imágenes */
-    padding: 10px; /* Espaciado dentro del área de subida */
-    margin-bottom: 0px;
-}
-  
-  /* Estilo para el texto 'Sube tu archivo' */
-.upload-link {
-  display: block;
-  padding: 12px 16px;
-  background-color: #ddd; 
-  text-align: center; 
-  margin-top: 5px; 
-  border-top: 1px solid #ccc; 
-  cursor: pointer; 
+  .upload-area {
+    border-top: 1px solid #ccc; /* Línea sutil para separar del contenido anterior */
+    padding: 10px; /* Espaciado adecuado dentro del área para una mejor visualización */
+    margin-bottom: 0; /* Mantenemos el margen inferior en 0 para un espaciado consistente */
+    background-color: #f8f9fa; /* Un fondo ligeramente diferente para destacar el área de subida */
+    transition: background-color 0.2s; /* Transición suave para el cambio de color de fondo */
 }
 
+.upload-area:hover {
+    background-color: #e9ecef; /* Cambio de color al pasar el mouse para indicar interactividad */
+}
+
+.upload-link {
+    display: block;
+    padding: 8px 12px; /* Tamaño más pequeño mediante reducción del padding */
+    background-color: #ddd; /* Color de fondo original */
+    text-align: center;
+    margin-top: 5px;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px; /* Bordes redondeados para un diseño suave */
+    transition: background-color 0.2s, transform 0.2s; /* Transiciones suaves */
+  }
+  
+  .upload-link:hover {
+    background-color: #bbb; /* Color de hover más oscuro para mayor contraste */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+  }
+  
+  .upload-link:active {
+    background-color: #aaa; /* Color aún más oscuro al hacer clic */
+    transform: translateY(1px); /* Efecto de presión para feedback de clic */
+  }
 .download-options {
     margin-top: 20px;
-    align-items: center;
-    
+    display: flex; /* Asegura una alineación adecuada si tienes múltiples elementos */
+    flex-direction: column; /* Alinea los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
 }
 
 .download-button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
+    padding: 10px 20px; /* Espaciado interno para un mejor aspecto */
+    background-color: #28a745; /* Color de fondo verde */
+    color: white; /* Texto blanco para contraste */
+    border: none; /* Sin bordes para un look más limpio */
+    border-radius: 4px; /* Bordes redondeados suavemente */
+    cursor: pointer; /* Cursor de mano para interactividad */
+    margin-top: 10px; /* Margen superior para separar de otros elementos */
+    width: 100%; /* Ancho completo para destacar en su contenedor */
+    transition: background-color 0.2s, transform 0.2s; /* Transición suave para color y transformación */
+}
+
+.download-button:hover, .download-button:focus {
+    background-color: #218838; /* Color más oscuro al pasar el cursor o enfocar */
+    outline: none; /* Remueve el contorno al enfocar para un look más limpio */
+    transform: translateY(-2px); /* Ligeramente elevado al pasar el cursor o enfocar */
+}
+
+.download-button:active {
+    background-color: #1e7e34; /* Color aún más oscuro al hacer clic */
+    transform: translateY(1px); /* Simula presión al hacer clic */
 }
 
 
 label.error {
     font-weight: bold;
     font-size: 0.9em;
+}
+
+.form-group {
+    margin-top: 20px; /* Agrega espacio en la parte superior */
+    margin-bottom: 20px;
+}
+
+.sizeqr {
+    display: block;
+    width: 100%; /* Asegura que el selector ocupe todo el ancho disponible */
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem; /* Ajusta el espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente adecuado para la legibilidad */
+    line-height: 1.5; /* Espaciado de línea para mejorar la legibilidad */
+    color: #495057; /* Color del texto para contraste */
+    background-color: #fff; /* Fondo blanco para el selector */
+    background-clip: padding-box;
+    border: 1px solid #ced4da; /* Borde sutil */
+    border-radius: 0.25rem; /* Bordes redondeados para un look moderno */
+    appearance: none; /* Deshabilita el estilo predeterminado del navegador */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>'); /* Ícono de flecha personalizado */
+    background-repeat: no-repeat, repeat; /* Asegura que el ícono de flecha no se repita */
+    background-position: right 0.75rem center, 0 0; /* Posiciona el ícono de flecha */
+    background-size: 8px 10px; /* Tamaño del ícono de flecha */
+    margin-left: 5px;
+}
+
+.sizeqr:focus {
+    border-color: #80bdff; /* Color del borde al enfocar */
+    outline: 0; /* Elimina el contorno predeterminado */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Sombra sutil alrededor para enfocar */
 }
 
 @media (max-width: 767px) {
